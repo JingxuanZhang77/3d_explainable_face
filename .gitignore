@@ -1,1 +1,4 @@
 obj*
+retrieval_data/
+augmented_data/
+checkpoints/
