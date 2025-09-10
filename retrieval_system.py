@@ -17,6 +17,13 @@ import seaborn as sns
 from collections import defaultdict
 import time
 
+
+def get_id_from_file(path_or_str):
+    """从路径/文件名提取唯一ID：取 stem 的下划线前一段；如 123456_q -> 123456"""
+    name = Path(path_or_str).name
+    stem = Path(name).stem
+    return stem.split('_')[0]
+
 # =====================================
 # 第1部分：加载训练好的模型
 # =====================================
@@ -259,178 +266,169 @@ class RetrievalEngine:
 # =====================================
 
 class RetrievalEvaluator:
-    """评估检索系统性能"""
+    """评估检索系统性能（按文件名ID匹配）"""
     
     def __init__(self, retrieval_engine, query_dir='retrieval_data/query'):
-        """
-        Args:
-            retrieval_engine: 检索引擎
-            query_dir: Query数据目录
-        """
         self.engine = retrieval_engine
         self.query_dir = Path(query_dir)
-        
-        # 加载Query标签
-        with open('retrieval_data/metadata/labels.pkl', 'rb') as f:
-            label_info = pickle.load(f)
-            # 确保转换为numpy数组！
-            self.query_labels = np.array(label_info['query_labels'])
-            self.query_types = label_info['query_types']
-    
+
+    # --------- 核心：按文件名ID计算指标 ----------
+    def _compute_metrics_by_name(self, query_files, indices, k_values=(1,5,10,20), max_map_k=20, mask=None):
+        """
+        以“文件名ID相同”为相关性定义，计算 rank@k / mAP（mAP@max_map_k）
+        - 分母：仅统计 queryID 存在于 galleryIDs 的那些样本
+        - mask: 可选的布尔数组，限制统计的子集（如 seen/unseen）
+        """
+        gallery_ids = [get_id_from_file(fp) for fp in self.engine.gallery.file_paths]
+        gallery_id_set = set(gallery_ids)
+
+        qfiles = list(query_files)
+        n = len(qfiles)
+        if mask is None:
+            mask = np.ones(n, dtype=bool)
+        else:
+            mask = np.array(mask, dtype=bool)
+
+        hits = {k: 0 for k in k_values}
+        denom = 0
+        ap_scores = []
+
+        maxk = max(k_values + (max_map_k,))
+        for i in range(n):
+            if not mask[i]:
+                continue
+            qid = get_id_from_file(qfiles[i])
+            # 只统计 gallery 里存在的ID
+            if qid not in gallery_id_set:
+                continue
+
+            denom += 1
+            ranked_ids = [gallery_ids[j] for j in indices[i, :maxk]]
+
+            # rank@k
+            for k in k_values:
+                if qid in ranked_ids[:k]:
+                    hits[k] += 1
+
+            # AP@max_map_k
+            rel_flags = [1 if rid == qid else 0 for rid in ranked_ids[:max_map_k]]
+            precisions, rel_seen = [], 0
+            for r, rel in enumerate(rel_flags, start=1):
+                if rel:
+                    rel_seen += 1
+                    precisions.append(rel_seen / r)
+            ap_scores.append(np.mean(precisions) if precisions else 0.0)
+
+        metrics = {f'rank_{k}': (hits[k]/denom if denom > 0 else 0.0) for k in k_values}
+        metrics['mAP'] = float(np.mean(ap_scores)) if denom > 0 else 0.0
+        metrics['denominator'] = denom
+        for k in k_values:
+            metrics[f'top{k}_hits'] = hits[k]
+        return metrics
+
+    # --------- 评估主流程（只产出“按文件名ID”的指标） ----------
     def evaluate(self, feature_extractor, save_results=True):
-        """
-        评估检索性能
-        
-        Args:
-            feature_extractor: 特征提取器
-            save_results: 是否保存结果
-        """
         print("\n" + "="*60)
-        print("评估检索性能")
+        print("评估检索性能（按文件名ID匹配）")
         print("="*60)
-        
-        # 获取所有Query文件
+
+        # 读取 query
         query_files = sorted(self.query_dir.glob('*.npz'))
         print(f"Query集包含 {len(query_files)} 个样本")
-        
-        # 提取Query特征
+
+        # 提特征
         print("提取Query特征...")
         query_features = []
         for file_path in tqdm(query_files):
             data = np.load(file_path)
             points = data['points'].astype(np.float32)
-            feature = feature_extractor.extract_features(points)
-            query_features.append(feature[0])
-        
+            feat = feature_extractor.extract_features(points)
+            query_features.append(feat[0])
         query_features = np.array(query_features)
-        
-        # 执行检索
+
+        # 检索
         print("执行检索...")
-        k_values = [1, 5, 10, 20]
+        k_values = (1,5,10,20)
         similarities, indices = self.engine.search(query_features, k=max(k_values))
-        
-        # 计算指标
-        results = self._compute_metrics(indices, k_values)
-        
-        # 分别评估seen和unseen
-        seen_indices = [i for i, t in enumerate(self.query_types) if t == 'seen']
-        unseen_indices = [i for i, t in enumerate(self.query_types) if t == 'unseen']
-        
-        if seen_indices:
-            results['seen'] = self._compute_metrics(
-                indices[seen_indices], k_values, self.query_labels[seen_indices]
-            )
-        
-        if unseen_indices:
-            results['unseen'] = self._compute_metrics(
-                indices[unseen_indices], k_values, self.query_labels[unseen_indices]
-            )
-        
-        # 打印结果
+
+        # seen/unseen 判定：是否在 gallery 存在同ID
+        gallery_id_set = set(get_id_from_file(fp) for fp in self.engine.gallery.file_paths)
+        query_ids = [get_id_from_file(p) for p in query_files]
+        seen_mask = np.array([qid in gallery_id_set for qid in query_ids], dtype=bool)
+        unseen_mask = ~seen_mask
+
+        # overall / seen / unseen（全部按文件名）
+        results = self._compute_metrics_by_name(query_files, indices, k_values=k_values, mask=None)
+        results['seen']   = self._compute_metrics_by_name(query_files, indices, k_values=k_values, mask=seen_mask)
+        results['unseen'] = self._compute_metrics_by_name(query_files, indices, k_values=k_values, mask=unseen_mask)
+
+        # 打印
         self._print_results(results)
-        
-        # 保存详细结果
+
+        # 保存
         if save_results:
-            self._save_results(results, indices, similarities, query_files)
-        
+            self._save_results(results, indices, similarities, query_files, seen_mask)
         return results
-    
-    def _compute_metrics(self, indices, k_values, labels=None):
-        """计算检索指标"""
-        if labels is None:
-            labels = self.query_labels
-        
-        metrics = {}
-        n_queries = len(indices)
-        
-        for k in k_values:
-            top_k_indices = indices[:, :k]
-            top_k_labels = self.engine.gallery.labels[top_k_indices]
-            
-            # Rank-K准确率：Top-K中是否包含正确答案
-            correct = 0
-            for i in range(n_queries):
-                query_label = labels[i]
-                if query_label in top_k_labels[i]:
-                    correct += 1
-            
-            metrics[f'rank_{k}'] = correct / n_queries
-        
-        # 计算mAP (Mean Average Precision)
-        ap_scores = []
-        for i in range(n_queries):
-            query_label = labels[i]
-            retrieved_labels = self.engine.gallery.labels[indices[i]]
-            
-            # 计算AP
-            precisions = []
-            relevant_count = 0
-            for j, label in enumerate(retrieved_labels[:20]):  # 只看前20个
-                if label == query_label:
-                    relevant_count += 1
-                    precisions.append(relevant_count / (j + 1))
-            
-            if precisions:
-                ap_scores.append(np.mean(precisions))
-            else:
-                ap_scores.append(0)
-        
-        metrics['mAP'] = np.mean(ap_scores)
-        
-        return metrics
-    
+
     def _print_results(self, results):
-        """打印评估结果"""
         print("\n" + "="*60)
-        print("检索性能评估结果")
+        print("检索性能评估结果（按文件名ID）")
         print("="*60)
-        
-        print("\n整体性能:")
-        print(f"  Rank-1 准确率: {results['rank_1']:.2%}")
-        print(f"  Rank-5 准确率: {results['rank_5']:.2%}")
-        print(f"  Rank-10 准确率: {results['rank_10']:.2%}")
-        print(f"  Rank-20 准确率: {results['rank_20']:.2%}")
-        print(f"  mAP: {results['mAP']:.4f}")
-        
+
+        print("\n整体（仅统计 queryID 存在于 gallery 的样本）:")
+        print(f"  N = {results.get('denominator', 0)}")
+        print(f"  Rank-1:  {results['rank_1']:.2%}  (hits={results.get('top1_hits',0)})")
+        print(f"  Rank-5:  {results['rank_5']:.2%}  (hits={results.get('top5_hits',0)})")
+        print(f"  Rank-10: {results['rank_10']:.2%}")
+        print(f"  Rank-20: {results['rank_20']:.2%}")
+        print(f"  mAP:     {results['mAP']:.4f}")
+
         if 'seen' in results:
-            print("\nSeen身份（训练时见过）:")
-            print(f"  Rank-1: {results['seen']['rank_1']:.2%}")
-            print(f"  Rank-5: {results['seen']['rank_5']:.2%}")
-            print(f"  mAP: {results['seen']['mAP']:.4f}")
-        
+            r = results['seen']
+            print("\nSeen（queryID 出现在 gallery）:")
+            print(f"  N = {r.get('denominator', 0)}")
+            print(f"  Rank-1: {r['rank_1']:.2%}  (hits={r.get('top1_hits',0)})")
+            print(f"  Rank-5: {r['rank_5']:.2%}  (hits={r.get('top5_hits',0)})")
+            print(f"  mAP:    {r['mAP']:.4f}")
+
         if 'unseen' in results:
-            print("\nUnseen身份（完全陌生）:")
-            print(f"  Rank-1: {results['unseen']['rank_1']:.2%}")
-            print(f"  Rank-5: {results['unseen']['rank_5']:.2%}")
-            print(f"  mAP: {results['unseen']['mAP']:.4f}")
-    
-    def _save_results(self, metrics, indices, similarities, query_files):
-        """保存详细结果"""
+            r = results['unseen']
+            print("\nUnseen（queryID 不在 gallery）:")
+            print(f"  N = {r.get('denominator', 0)}")
+            print(f"  Rank-1: {r['rank_1']:.2%}")
+            print(f"  Rank-5: {r['rank_5']:.2%}")
+            print(f"  mAP:    {r['mAP']:.4f}")
+
+    def _save_results(self, metrics, indices, similarities, query_files, seen_mask):
+        """保存按文件名ID的详细结果"""
+        gallery_files = self.engine.gallery.file_paths
         results = {
             'metrics': metrics,
             'retrieval_results': []
         }
-        
-        # 确保标签是列表（JSON序列化需要）
-        query_labels_list = self.query_labels.tolist() if isinstance(self.query_labels, np.ndarray) else self.query_labels
-        
-        # 保存每个Query的检索结果
-        for i in range(len(query_files)):
-            query_result = {
-                'query_file': str(query_files[i]),
-                'query_label': int(query_labels_list[i]),
-                'query_type': self.query_types[i],
-                'top_5_indices': indices[i, :5].tolist(),
-                'top_5_labels': self.engine.gallery.labels[indices[i, :5]].tolist(),
+
+        for i, qf in enumerate(query_files):
+            qf = str(qf)
+            qid = get_id_from_file(qf)
+            top5_idx = indices[i, :5].tolist()
+            top5_files = [gallery_files[j] for j in top5_idx]
+            top5_ids = [get_id_from_file(fp) for fp in top5_files]
+
+            results['retrieval_results'].append({
+                'query_file': qf,
+                'query_id': qid,
+                'query_seen': bool(seen_mask[i]),  # True 表示该ID在gallery存在
+                'top_5_indices': top5_idx,
                 'top_5_similarities': similarities[i, :5].tolist(),
-                'top_5_files': [self.engine.gallery.file_paths[j] for j in indices[i, :5]]
-            }
-            results['retrieval_results'].append(query_result)
-        
-        # 保存JSON
+                'top_5_files': top5_files,
+                'top_5_ids': top5_ids,
+                'top1_match_by_id': (len(top5_ids) > 0 and top5_ids[0] == qid),
+                'top5_match_by_id': (qid in top5_ids)
+            })
+
         with open('retrieval_results.json', 'w') as f:
-            json.dump(results, f, indent=2)
-        
+            json.dump(results, f, indent=2, ensure_ascii=False)
+
         print(f"\n✓ 详细结果保存到: retrieval_results.json")
 
 
@@ -443,46 +441,32 @@ class RetrievalVisualizer:
     
     @staticmethod
     def plot_retrieval_examples(results_file='retrieval_results.json', n_examples=5):
-        """
-        可视化检索示例
-        
-        Args:
-            results_file: 结果文件
-            n_examples: 显示几个例子
-        """
         with open(results_file, 'r') as f:
             results = json.load(f)
-        
-        # 找成功和失败的例子
-        successes = []
-        failures = []
-        
+
+        successes, failures = [], []
         for r in results['retrieval_results']:
-            if r['query_label'] in r['top_5_labels'][:1]:  # Top-1正确
-                successes.append(r)
-            else:
-                failures.append(r)
-        
-        print(f"\n成功案例 (Top-1正确): {len(successes)}")
-        print(f"失败案例 (Top-1错误): {len(failures)}")
-        
-        # 显示例子
+            # 以 Top-1 是否同ID作为“成功”标准
+            ok = bool(r.get('top1_match_by_id', False))
+            (successes if ok else failures).append(r)
+
+        print(f"\n成功案例 (Top-1正确-按ID): {len(successes)}")
+        print(f"失败案例 (Top-1错误-按ID): {len(failures)}")
+
         print("\n" + "="*40)
         print("成功案例示例:")
         print("="*40)
         for r in successes[:n_examples]:
-            print(f"\nQuery: {Path(r['query_file']).name}")
-            print(f"  真实标签: {r['query_label']}")
-            print(f"  Top-5预测: {r['top_5_labels']}")
+            print(f"\nQuery: {Path(r['query_file']).name} (ID={r['query_id']})")
+            print(f"  Top-5 IDs: {r['top_5_ids']}")
             print(f"  相似度: {[f'{s:.3f}' for s in r['top_5_similarities']]}")
-        
+
         print("\n" + "="*40)
         print("失败案例示例:")
         print("="*40)
         for r in failures[:n_examples]:
-            print(f"\nQuery: {Path(r['query_file']).name}")
-            print(f"  真实标签: {r['query_label']}")
-            print(f"  Top-5预测: {r['top_5_labels']}")
+            print(f"\nQuery: {Path(r['query_file']).name} (ID={r['query_id']})")
+            print(f"  Top-5 IDs: {r['top_5_ids']}")
             print(f"  相似度: {[f'{s:.3f}' for s in r['top_5_similarities']]}")
     
     @staticmethod
@@ -609,10 +593,11 @@ def main():
     print(f"\nTop-10 检索结果:")
     print("-"*50)
     for i, (sim, idx) in enumerate(zip(similarities, indices)):
-        gallery_file = Path(gallery.file_paths[idx]).name
-        gallery_label = gallery.labels[idx]
-        print(f"  {i+1}. {gallery_file}")
-        print(f"     标签: {gallery_label}, 相似度: {sim:.4f}")
+        gpath = gallery.file_paths[idx]
+        gid = get_id_from_file(gpath)
+        print(f"  {i+1}. {Path(gpath).name}")
+        print(f"     Gallery-ID: {gid}, 相似度: {sim:.4f}")
+
     
     print("\n" + "="*60)
     print("✓ 检索系统构建完成！")
