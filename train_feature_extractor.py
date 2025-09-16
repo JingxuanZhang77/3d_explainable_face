@@ -1,548 +1,523 @@
 """
-3D人脸特征提取器训练代码
-使用预训练的PointNet++进行迁移学习
-目标：学习能够区分不同人脸的特征表示
+最先进的3D人脸识别模型
+使用DGCNN作为骨干网络，ArcFace作为损失函数
 """
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
 import numpy as np
+from torch.utils.data import Dataset, DataLoader
 from pathlib import Path
 import pickle
 from tqdm import tqdm
+import math
 import json
 from collections import defaultdict
-import random
-import logging
-from datetime import datetime
 
 # =====================================
-# 第1部分：PointNet++模型定义
-# 这是核心的3D点云特征提取器
+# 第1部分：DGCNN (Dynamic Graph CNN)
+# 最先进的点云特征提取器
 # =====================================
 
-class PointNetSetAbstraction(nn.Module):
-    """PointNet++的基础模块：局部特征提取"""
-    def __init__(self, npoint, radius, nsample, in_channel, mlp):
-        super().__init__()
-        self.npoint = npoint
-        self.radius = radius
-        self.nsample = nsample
-        self.mlp_convs = nn.ModuleList()
-        self.mlp_bns = nn.ModuleList()
-        last_channel = in_channel
-        
-        for out_channel in mlp:
-            self.mlp_convs.append(nn.Conv2d(last_channel, out_channel, 1))
-            self.mlp_bns.append(nn.BatchNorm2d(out_channel))
-            last_channel = out_channel
-    
-    def forward(self, xyz, points):
-        """
-        xyz:    (B, N, 3)
-        points: (B, N, C) 或 None
-        返回:
-        - 中间层: (xyz, per_point_feats) 其中 per_point_feats 为 (B, N, C_out)
-        - 最后一层(npoint=None): (xyz, global_feats) 其中 global_feats 为 (B, C_out)
-        """
-        B, N, _ = xyz.shape
-
-        # 逐点拼接坐标与上层特征，作为输入通道
-        if points is not None:
-            feats = torch.cat([xyz, points], dim=-1)   # (B, N, 3+C_in)
-        else:
-            feats = xyz                                 # (B, N, 3)
-
-        # (B, N, C_in) -> (B, C_in, N, 1)，过 1x1 Conv2d 相当于逐点 MLP
-        feats = feats.transpose(2, 1).unsqueeze(-1)     # (B, C_in, N, 1)
-        for conv, bn in zip(self.mlp_convs, self.mlp_bns):
-            feats = F.relu(bn(conv(feats)))             # (B, C_out, N, 1)
-
-        # 还原回逐点特征 (B, N, C_out)
-        feats = feats.squeeze(-1).transpose(2, 1)       # (B, N, C_out)
-
-        # 只有最后一层做全局池化 -> (B, C_out)
-        if self.npoint is None:
-            global_feats = torch.max(feats, dim=1)[0]   # 池化 N 维
-            return xyz, global_feats
-        else:
-            return xyz, feats
-
-
-class PointNet2Feature(nn.Module):
+def knn(x, k):
     """
-    预训练的PointNet++特征提取器
-    我们会加载在ModelNet40上预训练的权重
+    寻找k近邻
+    Args:
+        x: (B, F, N) 特征
+        k: 近邻数
+    Returns:
+        idx: (B, N, k) k近邻的索引
     """
-    def __init__(self, num_class=40, normal_channel=False):
-        super().__init__()
-        in_channel = 6 if normal_channel else 3
-        self.normal_channel = normal_channel
-        
-        # 特征提取层（这些会从预训练模型加载）
-        self.sa1 = PointNetSetAbstraction(512, 0.2, 32, in_channel, [64, 64, 128])
-        self.sa2 = PointNetSetAbstraction(128, 0.4, 64, 128 + 3, [128, 128, 256])
-        self.sa3 = PointNetSetAbstraction(None, None, None, 256 + 3, [256, 512, 1024])
-        
-        # 原始分类头（会被替换）
-        self.fc1 = nn.Linear(1024, 512)
-        self.bn1 = nn.BatchNorm1d(512)
-        self.drop1 = nn.Dropout(0.4)
-        self.fc2 = nn.Linear(512, 256)
-        self.bn2 = nn.BatchNorm1d(256)
-        self.drop2 = nn.Dropout(0.4)
-        self.fc3 = nn.Linear(256, num_class)
+    inner = -2 * torch.matmul(x.transpose(2, 1), x)
+    xx = torch.sum(x**2, dim=1, keepdim=True)
+    dist = -xx - inner - xx.transpose(2, 1)      # = -||xi-xj||^2
+    idx = dist.topk(k=k+1, dim=-1)[1][:, :, 1:]  # 丢掉自身
+    return idx
+
+
+def get_graph_feature(x, k=20, idx=None):
+    """
+    构建图特征
+    Args:
+        x: (B, C, N)
+        k: 近邻数
+        idx: 预计算的近邻索引
+    Returns:
+        (B, 2C, N, k) 边特征
+    """
+    batch_size = x.size(0)
+    num_points = x.size(2)
+    x = x.view(batch_size, -1, num_points)
     
-    def forward(self, xyz):
-        B, _, _ = xyz.shape
+    if idx is None:
+        idx = knn(x, k=k)
+    
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    idx_base = torch.arange(0, batch_size, device=device).view(-1, 1, 1) * num_points
+    idx = idx + idx_base
+    idx = idx.view(-1)
+    
+    _, num_dims, _ = x.size()
+    x = x.transpose(2, 1).contiguous()
+    feature = x.view(batch_size * num_points, -1)[idx, :]
+    feature = feature.view(batch_size, num_points, k, num_dims)
+    x = x.view(batch_size, num_points, 1, num_dims).repeat(1, 1, k, 1)
+    
+    feature = torch.cat((feature - x, x), dim=3).permute(0, 3, 1, 2).contiguous()
+    
+    return feature
+
+
+class EdgeConv(nn.Module):
+    """边卷积层"""
+    def __init__(self, in_channels, out_channels, k=20):
+        super().__init__()
+        self.k = k
+        self.conv = nn.Sequential(
+            nn.Conv2d(in_channels * 2, out_channels, kernel_size=1, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.LeakyReLU(negative_slope=0.2)
+        )
+    
+    def forward(self, x):
+        # 动态 k，防止 k >= N
+        k_eff = min(self.k, x.size(-1) - 1)
+        x = get_graph_feature(x, k=k_eff)
+        x = self.conv(x)
+        x = x.max(dim=-1, keepdim=False)[0]
+        return x
+
+
+class DGCNN(nn.Module):
+    """
+    DGCNN: Dynamic Graph CNN
+    Wang et al., "Dynamic Graph CNN for Learning on Point Clouds", ACM TOG 2019
+    """
+    def __init__(self, output_dim=512, k=20, dropout=0.2):
+        super().__init__()
+        self.k = k
         
-        # 逐层提取特征
-        l1_xyz, l1_points = self.sa1(xyz, None)
-        l2_xyz, l2_points = self.sa2(l1_xyz, l1_points)
-        l3_xyz, l3_points = self.sa3(l2_xyz, l2_points)
+        # EdgeConv层
+        self.conv1 = EdgeConv(3, 64, k)
+        self.conv2 = EdgeConv(64, 64, k)
+        self.conv3 = EdgeConv(64, 128, k)
+        self.conv4 = EdgeConv(128, 256, k)
+        
+        # 聚合层
+        self.conv5 = nn.Sequential(
+            nn.Conv1d(512, 1024, kernel_size=1, bias=False),
+            nn.BatchNorm1d(1024),
+            nn.LeakyReLU(negative_slope=0.2)
+        )
         
         # 全局特征
-        x = l3_points.view(B, 1024)
+        self.linear1 = nn.Linear(1024 * 2, 512, bias=False)
+        self.bn1 = nn.BatchNorm1d(512)
+        self.dp1 = nn.Dropout(p=dropout)
         
-        # 原始分类路径（训练时会替换）
-        x = self.drop1(F.relu(self.bn1(self.fc1(x))))
-        x = self.drop2(F.relu(self.bn2(self.fc2(x))))
-        x = self.fc3(x)
+        self.linear2 = nn.Linear(512, 256)
+        self.bn2 = nn.BatchNorm1d(256)
+        self.dp2 = nn.Dropout(p=dropout)
+        
+        self.linear3 = nn.Linear(256, output_dim)
+        self.bn3 = nn.BatchNorm1d(output_dim)
+        
+    def forward(self, x):
+        """
+        Args:
+            x: (B, N, 3) 点云
+        Returns:
+            (B, output_dim) 特征向量
+        """
+        batch_size = x.size(0)
+        
+        # 转置以适应conv层
+        x = x.transpose(2, 1)  # (B, 3, N)
+        
+        # EdgeConv层
+        x1 = self.conv1(x)  # (B, 64, N)
+        x2 = self.conv2(x1)  # (B, 64, N)
+        x3 = self.conv3(x2)  # (B, 128, N)
+        x4 = self.conv4(x3)  # (B, 256, N)
+        
+        # 拼接所有层的特征
+        x = torch.cat((x1, x2, x3, x4), dim=1)  # (B, 512, N)
+        
+        # 进一步的特征提取
+        x = self.conv5(x)  # (B, 1024, N)
+        
+        # 全局特征
+        x1 = F.adaptive_max_pool1d(x, 1).view(batch_size, -1)  # (B, 1024)
+        x2 = F.adaptive_avg_pool1d(x, 1).view(batch_size, -1)  # (B, 1024)
+        x = torch.cat((x1, x2), 1)  # (B, 2048)
+        
+        # MLP
+        x = F.leaky_relu(self.bn1(self.linear1(x)), negative_slope=0.2)
+        x = self.dp1(x)
+        x = F.leaky_relu(self.bn2(self.linear2(x)), negative_slope=0.2)
+        x = self.dp2(x)
+        x = self.bn3(self.linear3(x))
+        
+        # L2归一化（重要！）
+        x = F.normalize(x, p=2, dim=1)
         
         return x
 
 
 # =====================================
-# 第2部分：人脸特征提取器
-# 这是我们要训练的模型
+# 第2部分：ArcFace损失函数
+# 最先进的人脸识别损失
 # =====================================
 
-class FaceFeatureExtractor(nn.Module):
+class ArcFaceHead(nn.Module):
     """
-    人脸特征提取器
-    基于预训练的PointNet++，修改为输出固定维度的特征向量
+    ArcFace: Additive Angular Margin Loss
+    Deng et al., "ArcFace: Additive Angular Margin Loss for Deep Face Recognition", CVPR 2019
     """
-    def __init__(self, pretrained_model=None, feature_dim=512, freeze_layers=2):
+    def __init__(self, in_features, out_features, s=64.0, m=0.50, easy_margin=False):
         """
         Args:
-            pretrained_model: 预训练的PointNet++模型
-            feature_dim: 输出特征维度（512维）
-            freeze_layers: 冻结前几层（迁移学习策略）
+            in_features: 特征维度 (512)
+            out_features: 类别数 (722个身份)
+            s: 特征缩放因子
+            m: angular margin (弧度)
+            easy_margin: 是否使用easy margin
+        """
+        super().__init__()
+        self.in_features = in_features
+        self.out_features = out_features
+        self.s = s
+        self.m = m
+        self.easy_margin = easy_margin
+        
+        # 权重矩阵 (类中心)
+        self.weight = nn.Parameter(torch.FloatTensor(out_features, in_features))
+        nn.init.xavier_uniform_(self.weight)
+        
+        self.cos_m = math.cos(m)
+        self.sin_m = math.sin(m)
+        self.th = math.cos(math.pi - m)
+        self.mm = math.sin(math.pi - m) * m
+        
+    def forward(self, input, label):
+        """
+        Args:
+            input: (B, in_features) 归一化的特征
+            label: (B,) 标签
+        Returns:
+            output: (B, out_features) logits
+        """
+        # 归一化权重
+        W = F.normalize(self.weight, p=2, dim=1)
+    
+        # cos(theta) - 加入clamp防止数值问题
+        cosine = F.linear(input, W)
+        cosine = cosine.clamp(-1 + 1e-7, 1 - 1e-7)  # 防止超出[-1,1]
+        
+        # sin(theta) - 也要clamp
+        sine_square = 1.0 - torch.pow(cosine, 2)
+        sine_square = sine_square.clamp(min=0)  # 防止负数
+        sine = torch.sqrt(sine_square)
+            
+        # cos(theta + m)
+        phi = cosine * self.cos_m - sine * self.sin_m
+        
+        if self.easy_margin:
+            phi = torch.where(cosine > 0, phi, cosine)
+        else:
+            phi = torch.where(cosine > self.th, phi, cosine - self.mm)
+        
+        # one-hot
+        one_hot = torch.zeros(cosine.size()).to(input.device)
+        one_hot.scatter_(1, label.view(-1, 1).long(), 1)
+        
+        # 输出
+        output = (one_hot * phi) + ((1.0 - one_hot) * cosine)
+        output *= self.s
+        
+        return output
+
+
+# =====================================
+# 第3部分：完整的模型
+# =====================================
+
+class Face3DModel(nn.Module):
+    """完整的3D人脸识别模型"""
+    def __init__(self, num_classes=722, feature_dim=512, use_arcface=True):
+        """
+        Args:
+            num_classes: 训练集中的身份数
+            feature_dim: 特征维度
+            use_arcface: 是否使用ArcFace (训练时True，推理时False)
         """
         super().__init__()
         
-        # 如果提供了预训练模型，使用它；否则创建新的
-        if pretrained_model is not None:
-            self.base_model = pretrained_model
-            print("✓ 使用预训练模型")
+        # 特征提取器
+        self.backbone = DGCNN(output_dim=feature_dim, k=20, dropout=0.2)
+        
+        # ArcFace头 (只在训练时使用)
+        self.use_arcface = use_arcface
+        if use_arcface:
+            self.arcface = ArcFaceHead(
+                in_features=feature_dim,
+                out_features=num_classes,
+                s=64.0,  # 缩放因子
+                m=0.5   # margin (28.6度)
+            )
+    
+    def forward(self, x, labels=None):
+        """
+        Args:
+            x: (B, N, 3) 点云
+            labels: (B,) 标签 (训练时需要)
+        Returns:
+            训练模式: (features, logits)
+            推理模式: features
+        """
+        # 提取特征
+        features = self.backbone(x)  # (B, feature_dim)
+        
+        if self.training and self.use_arcface:
+            assert labels is not None, "训练时需要标签"
+            logits = self.arcface(features, labels)
+            return features, logits
         else:
-            self.base_model = PointNet2Feature(num_class=40)
-            print("⚠ 创建新模型（无预训练）")
-        
-        # 冻结底层（迁移学习的关键）
-        self._freeze_layers(freeze_layers)
-        
-        # 替换分类头为特征提取头
-        # 这是我们主要训练的部分
-        self.feature_head = nn.Sequential(
-            nn.Linear(1024, 768),
-            nn.BatchNorm1d(768),
-            nn.ReLU(inplace=True),
-            nn.Dropout(0.3),
-            
-            nn.Linear(768, feature_dim),
-            nn.BatchNorm1d(feature_dim)
-        )
-        
-        # 初始化新层
-        self._init_weights()
-        
-        print(f"模型结构：")
-        print(f"  - 基础特征提取器：PointNet++")
-        print(f"  - 冻结层数：{freeze_layers}")
-        print(f"  - 输出特征维度：{feature_dim}")
+            # 推理时只返回特征
+            return features
     
-    def _freeze_layers(self, num_layers):
-        """冻结前num_layers层，防止过拟合"""
-        layers = [self.base_model.sa1, self.base_model.sa2, self.base_model.sa3]
-        
-        for i in range(min(num_layers, len(layers))):
-            for param in layers[i].parameters():
-                param.requires_grad = False
-            print(f"  ✓ 冻结第{i+1}层")
-    
-    def _init_weights(self):
-        """初始化新添加的层"""
-        for m in self.feature_head.modules():
-            if isinstance(m, nn.Linear):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-                if m.bias is not None:
-                    nn.init.constant_(m.bias, 0)
-            elif isinstance(m, nn.BatchNorm1d):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
-    
-    def forward(self, point_cloud):
-        """
-        输入：点云 (B, N, 3)
-        输出：特征向量 (B, feature_dim)
-        """
-        B = point_cloud.shape[0]
-        
-        # 1. 提取基础特征
-        # 通过简化的PointNet++提取1024维特征
-        with torch.set_grad_enabled(self.training):
-            # 逐层提取特征
-            l1_xyz, l1_points = self.base_model.sa1(point_cloud, None)
-            l2_xyz, l2_points = self.base_model.sa2(l1_xyz, l1_points)
-            l3_xyz, l3_points = self.base_model.sa3(l2_xyz, l2_points)
-            
-            # l3_points已经是 (B, 1024)
-            base_features = l3_points
-        
-        # 2. 投影到人脸特征空间
-        features = self.feature_head(base_features)
-        
-        # 3. L2归一化（重要！让所有特征在单位球面上）
-        # 这样相似度就是余弦相似度
-        features = F.normalize(features, p=2, dim=1)
-        
-        return features
-    
-    def extract_features(self, point_cloud):
-        """提取特征的便捷方法（推理时使用）"""
+    def extract_features(self, x):
+        """提取特征的便捷方法"""
         self.eval()
         with torch.no_grad():
-            return self.forward(point_cloud)
+            return self.forward(x)
 
 
 # =====================================
-# 第3部分：数据集和数据加载
-# 处理您的4300个训练样本
+# 第4部分：数据集
 # =====================================
 
-class FaceTripletDataset(Dataset):
-    """
-    三元组数据集
-    每个样本返回：(anchor, positive, negative)
-    anchor和positive是同一人，negative是不同人
-    """
-    def __init__(self, data_dir, triplet_file, augment=True):
+class FaceDataset(Dataset):
+    """3D人脸数据集 - 分类版本"""
+    def __init__(self, data_dir, split='train'):
         """
         Args:
             data_dir: retrieval_data目录
-            triplet_file: 预生成的三元组文件
-            augment: 是否在线数据增强
+            split: 'train' 或 'val'
         """
         self.data_dir = Path(data_dir)
+        self.split = split
         
-        # 加载预生成的50000个三元组
-        with open(triplet_file, 'rb') as f:
-            self.triplets = pickle.load(f)
+        # 获取所有文件和标签
+        self.samples = []
+        self.labels = []
+        self.identity_to_label = {}
         
-        self.augment = augment
-        print(f"✓ 加载了 {len(self.triplets)} 个三元组")
+        # 训练集
+        if split == 'train':
+            train_dir = self.data_dir / 'train'
+            files = sorted(train_dir.glob('*.npz'))
+            
+            # 创建身份到标签的映射
+            identities = set()
+            for f in files:
+                # 提取身份 (去掉_aug后缀)
+                stem = f.stem
+                if '_aug' in stem:
+                    identity = stem.rsplit('_aug', 1)[0]
+                else:
+                    identity = stem
+                identities.add(identity)
+            
+            # 分配标签
+            for idx, identity in enumerate(sorted(identities)):
+                self.identity_to_label[identity] = idx
+            
+            # 添加样本
+            for f in files:
+                stem = f.stem
+                if '_aug' in stem:
+                    identity = stem.rsplit('_aug', 1)[0]
+                else:
+                    identity = stem
+                
+                self.samples.append(str(f))
+                self.labels.append(self.identity_to_label[identity])
         
-        # 缓存已加载的点云（避免重复读取）
-        self.cache = {}
-        self.cache_size = 1000  # 最多缓存1000个
+        print(f"{split}集: {len(self.samples)} 个样本, {len(self.identity_to_label)} 个身份")
     
     def __len__(self):
-        return len(self.triplets)
+        return len(self.samples)
     
-    def _load_point_cloud(self, file_path):
-        """加载点云，带缓存机制"""
-        if file_path in self.cache:
-            return self.cache[file_path].copy()
-        
-        data = np.load(file_path)
-        points = data['points'].astype(np.float32)
-        
-        # 添加到缓存
-        if len(self.cache) < self.cache_size:
-            self.cache[file_path] = points
-        
-        return points
-    
-    def _augment_point_cloud(self, points):
-        """简单的数据增强"""
-        if not self.augment or random.random() > 0.5:
-            return points
-        
-        # 随机旋转
-        theta = np.random.uniform(0, 2*np.pi)
-        rotation_matrix = np.array([
-            [np.cos(theta), -np.sin(theta), 0],
-            [np.sin(theta), np.cos(theta), 0],
-            [0, 0, 1]
-        ])
-        points = points @ rotation_matrix
-        
-        # 随机抖动
-        noise = np.random.normal(0, 0.001, points.shape).astype(np.float32)
-        points = points + noise
-
-        return points.astype(np.float32)
-        
     def __getitem__(self, idx):
-        """
-        返回一个三元组
-        """
-        anchor_path, positive_path, negative_path = self.triplets[idx]
-        
-        # 加载点云
-        anchor = self._load_point_cloud(anchor_path)
-        positive = self._load_point_cloud(positive_path)
-        negative = self._load_point_cloud(negative_path)
-        
-        # 数据增强（可选）
-        if self.augment:
-            anchor = self._augment_point_cloud(anchor)
-            positive = self._augment_point_cloud(positive)
-            negative = self._augment_point_cloud(negative)
-        
-        return (
-            torch.from_numpy(anchor.astype(np.float32)),
-            torch.from_numpy(positive.astype(np.float32)),
-            torch.from_numpy(negative.astype(np.float32)),
-        )
+        data = np.load(self.samples[idx])
+        points = data['points'].astype(np.float32)
 
+        # 兜底成 (N,3)
+        if points.ndim == 2 and points.shape[0] == 3 and points.shape[1] != 3:
+            points = points.T
 
-# =====================================
-# 第4部分：损失函数
-# 核心：让同一人的特征靠近，不同人的远离
-# =====================================
+        # 零均值 + 单位球（带 epsilon）
+        c = points.mean(axis=0, keepdims=True)
+        points = points - c
+        r = np.linalg.norm(points, axis=1).max()
+        points = points / (r + 1e-6)
 
-class TripletMarginLoss(nn.Module):
-    """
-    三元组损失
-    Loss = max(0, d(a,p) - d(a,n) + margin)
-    d(a,p): anchor和positive的距离（希望小）
-    d(a,n): anchor和negative的距离（希望大）
-    margin: 最小间隔
-    """
-    def __init__(self, margin=0.5):
-        super().__init__()
-        self.margin = margin
-    
-    def forward(self, anchor, positive, negative):
-        """
-        计算三元组损失
-        所有输入都应该是L2归一化的特征向量
-        """
-        # 计算欧氏距离
-        pos_dist = (anchor - positive).pow(2).sum(dim=1)
-        neg_dist = (anchor - negative).pow(2).sum(dim=1)
-        
-        # 三元组损失
-        loss = F.relu(pos_dist - neg_dist + self.margin)
-        
-        # 返回平均损失和一些统计信息
-        return {
-            'loss': loss.mean(),
-            'pos_dist': pos_dist.mean().item(),
-            'neg_dist': neg_dist.mean().item(),
-            'valid_triplets': (loss > 0).float().mean().item()  # 有效三元组比例
-        }
+        label = self.labels[idx]
+        return torch.from_numpy(points), label
 
 
 # =====================================
 # 第5部分：训练器
-# 管理整个训练流程
 # =====================================
 
 class Trainer:
     """训练管理器"""
-    
     def __init__(self, model, train_loader, val_loader=None, device='cuda'):
         self.model = model.to(device)
         self.device = device
         self.train_loader = train_loader
         self.val_loader = val_loader
         
-        # 损失函数
-        self.criterion = TripletMarginLoss(margin=0.5)
-        
-        # 优化器（不同层使用不同学习率）
-        self.optimizer = self._create_optimizer()
-        
-        # 学习率调度器
-        self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-            self.optimizer, mode='min', factor=0.5, patience=3
+        # 优化器
+        self.optimizer = torch.optim.AdamW(
+            model.parameters(),
+            lr=3e-4,
+            weight_decay=0.0001
         )
         
-        # 训练历史
+        # 学习率调度
+        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            self.optimizer, T_max=100, eta_min=1e-6
+        )
+        
+        # 损失函数
+        self.criterion = nn.CrossEntropyLoss()
+        
+        self.best_acc = 0
         self.history = defaultdict(list)
-        
-        # 最佳模型
-        self.best_loss = float('inf')
-        
-    def _create_optimizer(self):
-        """创建优化器，对不同部分使用不同学习率"""
-        param_groups = [
-            # 预训练层（如果未冻结）：小学习率
-            {'params': self.model.base_model.parameters(), 'lr': 1e-5},
-            # 新的特征头：大学习率
-            {'params': self.model.feature_head.parameters(), 'lr': 1e-3}
-        ]
-        return torch.optim.Adam(param_groups, weight_decay=1e-4)
     
     def train_epoch(self, epoch):
-        """训练一个epoch"""
         self.model.train()
+        losses = []
+        correct = 0
+        total = 0
         
-        epoch_losses = []
         pbar = tqdm(self.train_loader, desc=f'Epoch {epoch} [Train]')
-        
-        for batch_idx, (anchor, positive, negative) in enumerate(pbar):
-            # 移到GPU
-            anchor = anchor.to(self.device)
-            positive = positive.to(self.device)
-            negative = negative.to(self.device)
+        for points, labels in pbar:
+            points = points.to(self.device)
+            labels = labels.to(self.device)
             
-            # 前向传播：提取特征
-            feat_anchor = self.model(anchor)
-            feat_positive = self.model(positive)
-            feat_negative = self.model(negative)
-            
-            # 计算损失
-            loss_dict = self.criterion(feat_anchor, feat_positive, feat_negative)
-            loss = loss_dict['loss']
+            # 前向传播
+            features, logits = self.model(points, labels)
+            loss = self.criterion(logits, labels)
             
             # 反向传播
             self.optimizer.zero_grad()
             loss.backward()
-            
-            # 梯度裁剪（防止梯度爆炸）
-            torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
-            
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
             self.optimizer.step()
             
-            # 记录
-            epoch_losses.append(loss.item())
+            # 统计
+            losses.append(loss.item())
+            _, predicted = torch.max(logits.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
             
             # 更新进度条
             pbar.set_postfix({
                 'loss': f'{loss.item():.4f}',
-                'pos_d': f'{loss_dict["pos_dist"]:.3f}',
-                'neg_d': f'{loss_dict["neg_dist"]:.3f}',
-                'valid': f'{loss_dict["valid_triplets"]:.1%}'
+                'acc': f'{100.*correct/total:.2f}%'
             })
         
-        return np.mean(epoch_losses)
+        return np.mean(losses), correct/total
     
     def validate(self, epoch):
-        """验证"""
         if self.val_loader is None:
-            return None
+            return None, None
         
         self.model.eval()
-        val_losses = []
+        losses = []
+        correct = 0
+        total = 0
         
         with torch.no_grad():
-            for anchor, positive, negative in tqdm(self.val_loader, desc=f'Epoch {epoch} [Val]'):
-                anchor = anchor.to(self.device)
-                positive = positive.to(self.device)
-                negative = negative.to(self.device)
+            for points, labels in tqdm(self.val_loader, desc=f'Epoch {epoch} [Val]'):
+                points = points.to(self.device)
+                labels = labels.to(self.device)
                 
-                feat_anchor = self.model(anchor)
-                feat_positive = self.model(positive)
-                feat_negative = self.model(negative)
+                features, logits = self.model(points, labels)
+                loss = self.criterion(logits, labels)
                 
-                loss_dict = self.criterion(feat_anchor, feat_positive, feat_negative)
-                val_losses.append(loss_dict['loss'].item())
+                losses.append(loss.item())
+                _, predicted = torch.max(logits.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
         
-        return np.mean(val_losses)
+        return np.mean(losses), correct/total
     
-    def train(self, num_epochs, save_dir='checkpoints'):
-        """完整训练流程"""
-        save_dir = Path(save_dir)
-        save_dir.mkdir(exist_ok=True)
-        
-        print("\n" + "="*60)
-        print("开始训练")
-        print("="*60)
-        
+    def train(self, num_epochs):
         for epoch in range(1, num_epochs + 1):
-            print(f"\n--- Epoch {epoch}/{num_epochs} ---")
+            print(f'\n--- Epoch {epoch}/{num_epochs} ---')
             
             # 训练
-            train_loss = self.train_epoch(epoch)
+            train_loss, train_acc = self.train_epoch(epoch)
             self.history['train_loss'].append(train_loss)
+            self.history['train_acc'].append(train_acc)
             
             # 验证
-            val_loss = self.validate(epoch)
-            if val_loss is not None:
+            val_loss, val_acc = self.validate(epoch)
+            if val_loss:
                 self.history['val_loss'].append(val_loss)
-                
-                # 学习率调度
-                self.scheduler.step(val_loss)
-                
-                # 保存最佳模型
-                if val_loss < self.best_loss:
-                    self.best_loss = val_loss
-                    self.save_checkpoint(save_dir / 'best_model.pth', epoch)
-                    print(f"✓ 保存最佳模型 (val_loss: {val_loss:.4f})")
+                self.history['val_acc'].append(val_acc)
             
-            # 定期保存
-            if epoch % 5 == 0:
-                self.save_checkpoint(save_dir / f'checkpoint_epoch_{epoch}.pth', epoch)
+            # 调整学习率
+            self.scheduler.step()
             
-            # 打印总结
-            print(f"Train Loss: {train_loss:.4f}")
-            if val_loss is not None:
-                print(f"Val Loss: {val_loss:.4f}")
-        
-        print("\n✓ 训练完成！")
-        return self.history
+            # 打印
+            print(f'Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f}')
+            if val_loss:
+                print(f'Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}')
+            
+            # 保存最佳模型
+            if val_acc and val_acc > self.best_acc:
+                self.best_acc = val_acc
+                self.save_checkpoint('best_model.pth', epoch)
+                print(f'✓ 保存最佳模型 (acc: {val_acc:.4f})')
     
     def save_checkpoint(self, path, epoch):
-        """保存检查点"""
         torch.save({
             'epoch': epoch,
             'model_state_dict': self.model.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
-            'best_loss': self.best_loss,
+            'best_acc': self.best_acc,
             'history': dict(self.history)
         }, path)
 
 
 # =====================================
 # 第6部分：主函数
-# 把所有部分组合起来
 # =====================================
 
 def main():
-    """主训练流程"""
-    
     # 配置
     config = {
-        'data_dir': '/home/jz97/3d_face_repo/retrieval_data',
+        'data_dir': 'retrieval_data',
         'batch_size': 32,
-        'num_epochs': 15,
-        'feature_dim': 512,
-        'device': 'cuda' if torch.cuda.is_available() else 'cpu',
+        'num_epochs': 50,
         'num_workers': 4,
-        'pretrained_path': None  # 如果有预训练模型，在这里指定路径
+        'device': 'cuda' if torch.cuda.is_available() else 'cpu'
     }
     
     print("="*60)
-    print("3D人脸特征提取器训练")
+    print("SOTA 3D人脸识别模型训练")
+    print("架构: DGCNN + ArcFace")
     print("="*60)
-    print(f"配置：")
-    for k, v in config.items():
-        print(f"  {k}: {v}")
     
-    # 1. 创建数据集
-    print("\n加载数据...")
-    train_dataset = FaceTripletDataset(
-        data_dir=config['data_dir'],
-        triplet_file=Path(config['data_dir']) / 'metadata' / 'train_triplets.pkl',
-        augment=True
-    )
-    
+    # 1. 数据集
+    train_dataset = FaceDataset(config['data_dir'], split='train')
     train_loader = DataLoader(
         train_dataset,
         batch_size=config['batch_size'],
@@ -551,63 +526,46 @@ def main():
         pin_memory=True
     )
     
-    # 2. 创建模型
-    print("\n创建模型...")
+    # 2. 模型
+    num_classes = len(train_dataset.identity_to_label)
+    print(f"\n训练类别数: {num_classes}")
     
-    # 如果有预训练模型，加载它
-    pretrained_model = None
-    if config['pretrained_path']:
-        print(f"加载预训练模型：{config['pretrained_path']}")
-        pretrained_model = PointNet2Feature()
-        checkpoint = torch.load(config['pretrained_path'])
-        pretrained_model.load_state_dict(checkpoint['model_state_dict'])
-    
-    model = FaceFeatureExtractor(
-        pretrained_model=pretrained_model,
-        feature_dim=config['feature_dim'],
-        freeze_layers=2  # 冻结前2层
+    model = Face3DModel(
+        num_classes=num_classes,
+        feature_dim=512,
+        use_arcface=True
     )
     
-    # 3. 创建训练器
+    # 3. 训练
     trainer = Trainer(
         model=model,
         train_loader=train_loader,
-        val_loader=None,  # 如果有验证集，在这里添加
+        val_loader=None,
         device=config['device']
     )
     
-    # 4. 训练
-    history = trainer.train(
-        num_epochs=config['num_epochs'],
-        save_dir='checkpoints'
+    trainer.train(config['num_epochs'])
+    
+    # 4. 保存最终模型（用于推理）
+    print("\n保存推理模型...")
+    inference_model = Face3DModel(
+        num_classes=num_classes,
+        feature_dim=512,
+        use_arcface=False  # 推理时不需要ArcFace
     )
     
-    # 5. 保存最终模型
-    print("\n保存最终模型...")
+    # 只加载backbone权重
+    inference_model.backbone.load_state_dict(model.backbone.state_dict())
+    
     torch.save({
-        'model_state_dict': model.state_dict(),
-        'config': config,
-        'history': history
-    }, 'face_feature_extractor_final.pth')
+        'model_state_dict': inference_model.state_dict(),
+        'num_classes': num_classes,
+        'config': config
+    }, 'dgcnn_arcface_final.pth')
     
-    print("\n✓ 训练完成！")
-    print(f"  最终模型保存在：face_feature_extractor_final.pth")
-    print(f"  最佳模型保存在：checkpoints/best_model.pth")
-    
-    # 6. 绘制训练曲线
-    import matplotlib.pyplot as plt
-    
-    plt.figure(figsize=(10, 5))
-    plt.plot(history['train_loss'], label='Train Loss')
-    if 'val_loss' in history:
-        plt.plot(history['val_loss'], label='Val Loss')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.title('Training History')
-    plt.legend()
-    plt.grid(True)
-    plt.savefig('training_history.png')
-    print(f"  训练曲线保存在：training_history.png")
+    print("✓ 训练完成!")
+    print("  训练模型: best_model.pth")
+    print("  推理模型: dgcnn_arcface_final.pth")
 
 
 if __name__ == "__main__":
