@@ -29,12 +29,12 @@ def get_id_from_file(path_or_str):
 # =====================================
 
 # 从训练代码导入模型定义
-from train_feature_extractor import FaceFeatureExtractor, PointNet2Feature
+from train_feature_extractor import Face3DModel
 
 class FeatureExtractor:
     """封装特征提取功能"""
     
-    def __init__(self, model_path='face_feature_extractor_final.pth', device='cuda'):
+    def __init__(self, model_path='dgcnn_arcface_final.pth', device='cuda'):
         """
         Args:
             model_path: 训练好的模型路径
@@ -44,8 +44,7 @@ class FeatureExtractor:
         
         # 加载模型
         print(f"加载模型: {model_path}")
-        self.model = FaceFeatureExtractor(feature_dim=512, freeze_layers=0)
-        
+
         # 加载权重（处理PyTorch 2.6的兼容性问题）
         try:
             # 首先尝试安全加载
@@ -54,11 +53,18 @@ class FeatureExtractor:
             # 如果失败，使用旧版本方式（信任源文件）
             print("  使用兼容模式加载...")
             checkpoint = torch.load(model_path, map_location=self.device, weights_only=False)
-        
-        if 'model_state_dict' in checkpoint:
-            self.model.load_state_dict(checkpoint['model_state_dict'])
-        else:
-            self.model.load_state_dict(checkpoint)
+
+        state_dict = checkpoint['model_state_dict'] if 'model_state_dict' in checkpoint else checkpoint
+
+        # DGCNN推理模型（ArcFace头已移除）
+        num_classes = int(checkpoint.get('num_classes', 1) or 1)
+        feature_dim = int(checkpoint.get('feature_dim', 512) or 512)
+        self.model = Face3DModel(
+            num_classes=num_classes,
+            feature_dim=feature_dim,
+            use_arcface=False
+        )
+        self.model.load_state_dict(state_dict)
         
         self.model.to(self.device)
         self.model.eval()
@@ -76,16 +82,36 @@ class FeatureExtractor:
         Returns:
             features: (512,) 或 (B, 512) 的特征向量
         """
-        # 确保输入格式正确
-        if isinstance(point_cloud, np.ndarray):
-            point_cloud = torch.from_numpy(point_cloud).float()
-        
-        # 如果是单个点云，添加batch维度
-        if point_cloud.dim() == 2:
-            point_cloud = point_cloud.unsqueeze(0)
-        
-        # 移到设备
-        point_cloud = point_cloud.to(self.device)
+        # 转成numpy便于逐样本归一化
+        if isinstance(point_cloud, torch.Tensor):
+            arr = point_cloud.detach().cpu().numpy()
+        else:
+            arr = np.asarray(point_cloud, dtype=np.float32)
+
+        # 确保形状一致 (B, N, 3)
+        if arr.ndim == 2:
+            arr = arr[None, ...]
+
+        processed = []
+        for pts in arr:
+            pts = np.asarray(pts, dtype=np.float32)
+            if pts.ndim != 2:
+                raise ValueError("point_cloud 必须是(N,3)或(B,N,3)的数组")
+            # 兜底 (3, N) -> (N,3)
+            if pts.shape[0] == 3 and pts.shape[1] != 3:
+                pts = pts.T
+            if pts.shape[1] != 3:
+                raise ValueError(f"点云维度应为3，当前形状: {pts.shape}")
+
+            # 与训练时一致的预处理：零均值 + 单位球
+            centroid = pts.mean(axis=0, keepdims=True)
+            pts = pts - centroid
+            scale = np.linalg.norm(pts, axis=1).max()
+            pts = pts / (scale + 1e-6)
+
+            processed.append(pts)
+
+        point_cloud = torch.from_numpy(np.stack(processed)).float().to(self.device)
         
         # 提取特征
         with torch.no_grad():
@@ -539,7 +565,7 @@ def main():
     # 1. 加载特征提取器
     print("\n[步骤1] 加载特征提取器")
     extractor = FeatureExtractor(
-        model_path='face_feature_extractor_final.pth',
+        model_path='dgcnn_arcface_final.pth',
         device='cuda'
     )
     

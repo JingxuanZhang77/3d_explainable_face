@@ -506,7 +506,7 @@ def main():
     config = {
         'data_dir': 'retrieval_data',
         'batch_size': 32,
-        'num_epochs': 50,
+        'num_epochs': 60,
         'num_workers': 4,
         'device': 'cuda' if torch.cuda.is_available() else 'cpu'
     }
