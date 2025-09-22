@@ -17,6 +17,8 @@ import seaborn as sns
 from collections import defaultdict
 import time
 
+from data.preprocess import zero_mean_unit_sphere
+
 
 def get_id_from_file(path_or_str):
     """从路径/文件名提取唯一ID：取 stem 的下划线前一段；如 123456_q -> 123456"""
@@ -92,26 +94,8 @@ class FeatureExtractor:
         if arr.ndim == 2:
             arr = arr[None, ...]
 
-        processed = []
-        for pts in arr:
-            pts = np.asarray(pts, dtype=np.float32)
-            if pts.ndim != 2:
-                raise ValueError("point_cloud 必须是(N,3)或(B,N,3)的数组")
-            # 兜底 (3, N) -> (N,3)
-            if pts.shape[0] == 3 and pts.shape[1] != 3:
-                pts = pts.T
-            if pts.shape[1] != 3:
-                raise ValueError(f"点云维度应为3，当前形状: {pts.shape}")
-
-            # 与训练时一致的预处理：零均值 + 单位球
-            centroid = pts.mean(axis=0, keepdims=True)
-            pts = pts - centroid
-            scale = np.linalg.norm(pts, axis=1).max()
-            pts = pts / (scale + 1e-6)
-
-            processed.append(pts)
-
-        point_cloud = torch.from_numpy(np.stack(processed)).float().to(self.device)
+        processed = zero_mean_unit_sphere(arr)
+        point_cloud = torch.from_numpy(processed).float().to(self.device)
         
         # 提取特征
         with torch.no_grad():
@@ -574,7 +558,7 @@ def main():
     gallery = GalleryDatabase('retrieval_data/gallery')
     
     # 检查是否已有特征数据库
-    if Path('gallery_features.npz').exists():
+    if Path('gallery_features_current.npz').exists():
         print("发现已有特征数据库，直接加载")
         gallery.load_database('gallery_features.npz')
     else:

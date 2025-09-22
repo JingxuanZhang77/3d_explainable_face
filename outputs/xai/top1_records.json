@@ -1,0 +1,3956 @@
+[
+  {
+    "query_file": "retrieval_data/query/100067.npz",
+    "query_id": "100067",
+    "top1_id": "100067",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/103541.npz",
+    "query_id": "103541",
+    "top1_id": "103541",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/103801.npz",
+    "query_id": "103801",
+    "top1_id": "103801",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/104878.npz",
+    "query_id": "104878",
+    "top1_id": "251915",
+    "similarity": "0.494109"
+  },
+  {
+    "query_file": "retrieval_data/query/109185.npz",
+    "query_id": "109185",
+    "top1_id": "790995",
+    "similarity": "0.410645"
+  },
+  {
+    "query_file": "retrieval_data/query/111541.npz",
+    "query_id": "111541",
+    "top1_id": "111541",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/114700.npz",
+    "query_id": "114700",
+    "top1_id": "114700",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/116647.npz",
+    "query_id": "116647",
+    "top1_id": "764583",
+    "similarity": "0.641935"
+  },
+  {
+    "query_file": "retrieval_data/query/116943.npz",
+    "query_id": "116943",
+    "top1_id": "116943",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/1179.npz",
+    "query_id": "1179",
+    "top1_id": "892124",
+    "similarity": "0.488436"
+  },
+  {
+    "query_file": "retrieval_data/query/121904.npz",
+    "query_id": "121904",
+    "top1_id": "121904",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/122121.npz",
+    "query_id": "122121",
+    "top1_id": "122121",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/123592.npz",
+    "query_id": "123592",
+    "top1_id": "997533",
+    "similarity": "0.464248"
+  },
+  {
+    "query_file": "retrieval_data/query/123616.npz",
+    "query_id": "123616",
+    "top1_id": "821934",
+    "similarity": "0.529292"
+  },
+  {
+    "query_file": "retrieval_data/query/124605.npz",
+    "query_id": "124605",
+    "top1_id": "124605",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/126356.npz",
+    "query_id": "126356",
+    "top1_id": "126356",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/126823.npz",
+    "query_id": "126823",
+    "top1_id": "846821",
+    "similarity": "0.461093"
+  },
+  {
+    "query_file": "retrieval_data/query/127627.npz",
+    "query_id": "127627",
+    "top1_id": "127627",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/127887.npz",
+    "query_id": "127887",
+    "top1_id": "127887",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/129684.npz",
+    "query_id": "129684",
+    "top1_id": "129684",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/13193.npz",
+    "query_id": "13193",
+    "top1_id": "13193",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/133038.npz",
+    "query_id": "133038",
+    "top1_id": "133038",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/133257.npz",
+    "query_id": "133257",
+    "top1_id": "809564",
+    "similarity": "0.542870"
+  },
+  {
+    "query_file": "retrieval_data/query/135224.npz",
+    "query_id": "135224",
+    "top1_id": "135224",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/138132.npz",
+    "query_id": "138132",
+    "top1_id": "138132",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/139618.npz",
+    "query_id": "139618",
+    "top1_id": "139618",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/14221.npz",
+    "query_id": "14221",
+    "top1_id": "14221",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/143711.npz",
+    "query_id": "143711",
+    "top1_id": "143711",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/143724.npz",
+    "query_id": "143724",
+    "top1_id": "143724",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/14452.npz",
+    "query_id": "14452",
+    "top1_id": "14452",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/147742.npz",
+    "query_id": "147742",
+    "top1_id": "147742",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/148522.npz",
+    "query_id": "148522",
+    "top1_id": "452802",
+    "similarity": "0.418180"
+  },
+  {
+    "query_file": "retrieval_data/query/149997.npz",
+    "query_id": "149997",
+    "top1_id": "884989",
+    "similarity": "0.400003"
+  },
+  {
+    "query_file": "retrieval_data/query/150004.npz",
+    "query_id": "150004",
+    "top1_id": "150004",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/150881.npz",
+    "query_id": "150881",
+    "top1_id": "150881",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/150973.npz",
+    "query_id": "150973",
+    "top1_id": "150973",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/151467.npz",
+    "query_id": "151467",
+    "top1_id": "151467",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/156707.npz",
+    "query_id": "156707",
+    "top1_id": "669285",
+    "similarity": "0.573031"
+  },
+  {
+    "query_file": "retrieval_data/query/158289.npz",
+    "query_id": "158289",
+    "top1_id": "158289",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/158411.npz",
+    "query_id": "158411",
+    "top1_id": "158411",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/158734.npz",
+    "query_id": "158734",
+    "top1_id": "188365",
+    "similarity": "0.418109"
+  },
+  {
+    "query_file": "retrieval_data/query/160378.npz",
+    "query_id": "160378",
+    "top1_id": "160378",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/162174.npz",
+    "query_id": "162174",
+    "top1_id": "960117",
+    "similarity": "0.497888"
+  },
+  {
+    "query_file": "retrieval_data/query/162483.npz",
+    "query_id": "162483",
+    "top1_id": "162483",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/163866.npz",
+    "query_id": "163866",
+    "top1_id": "163866",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/165867.npz",
+    "query_id": "165867",
+    "top1_id": "165867",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/166210.npz",
+    "query_id": "166210",
+    "top1_id": "166210",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/16693.npz",
+    "query_id": "16693",
+    "top1_id": "16693",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/167069.npz",
+    "query_id": "167069",
+    "top1_id": "380736",
+    "similarity": "0.390344"
+  },
+  {
+    "query_file": "retrieval_data/query/167143.npz",
+    "query_id": "167143",
+    "top1_id": "167143",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/16727.npz",
+    "query_id": "16727",
+    "top1_id": "16727",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/173261.npz",
+    "query_id": "173261",
+    "top1_id": "828832",
+    "similarity": "0.448247"
+  },
+  {
+    "query_file": "retrieval_data/query/179192.npz",
+    "query_id": "179192",
+    "top1_id": "179192",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/18184.npz",
+    "query_id": "18184",
+    "top1_id": "18184",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/181888.npz",
+    "query_id": "181888",
+    "top1_id": "181888",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/185084.npz",
+    "query_id": "185084",
+    "top1_id": "828972",
+    "similarity": "0.489878"
+  },
+  {
+    "query_file": "retrieval_data/query/185098.npz",
+    "query_id": "185098",
+    "top1_id": "185098",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/185421.npz",
+    "query_id": "185421",
+    "top1_id": "185421",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/186912.npz",
+    "query_id": "186912",
+    "top1_id": "186912",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/191995.npz",
+    "query_id": "191995",
+    "top1_id": "191995",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/193613.npz",
+    "query_id": "193613",
+    "top1_id": "193613",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/194860.npz",
+    "query_id": "194860",
+    "top1_id": "194860",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/196696.npz",
+    "query_id": "196696",
+    "top1_id": "196696",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/197033.npz",
+    "query_id": "197033",
+    "top1_id": "243346",
+    "similarity": "0.513186"
+  },
+  {
+    "query_file": "retrieval_data/query/198864.npz",
+    "query_id": "198864",
+    "top1_id": "198864",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/202369.npz",
+    "query_id": "202369",
+    "top1_id": "762437",
+    "similarity": "0.514312"
+  },
+  {
+    "query_file": "retrieval_data/query/203648.npz",
+    "query_id": "203648",
+    "top1_id": "203648",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/205913.npz",
+    "query_id": "205913",
+    "top1_id": "69645",
+    "similarity": "0.518423"
+  },
+  {
+    "query_file": "retrieval_data/query/206563.npz",
+    "query_id": "206563",
+    "top1_id": "667572",
+    "similarity": "0.350965"
+  },
+  {
+    "query_file": "retrieval_data/query/206719.npz",
+    "query_id": "206719",
+    "top1_id": "206719",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/208590.npz",
+    "query_id": "208590",
+    "top1_id": "208590",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/210227.npz",
+    "query_id": "210227",
+    "top1_id": "210227",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/211240.npz",
+    "query_id": "211240",
+    "top1_id": "211240",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/212407.npz",
+    "query_id": "212407",
+    "top1_id": "212407",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/21479.npz",
+    "query_id": "21479",
+    "top1_id": "21479",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/215338.npz",
+    "query_id": "215338",
+    "top1_id": "314339",
+    "similarity": "0.481660"
+  },
+  {
+    "query_file": "retrieval_data/query/215763.npz",
+    "query_id": "215763",
+    "top1_id": "215763",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/21671.npz",
+    "query_id": "21671",
+    "top1_id": "21671",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/219069.npz",
+    "query_id": "219069",
+    "top1_id": "219069",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/220769.npz",
+    "query_id": "220769",
+    "top1_id": "220769",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/222411.npz",
+    "query_id": "222411",
+    "top1_id": "222411",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/22518.npz",
+    "query_id": "22518",
+    "top1_id": "391840",
+    "similarity": "0.469552"
+  },
+  {
+    "query_file": "retrieval_data/query/228178.npz",
+    "query_id": "228178",
+    "top1_id": "228178",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/228528.npz",
+    "query_id": "228528",
+    "top1_id": "228528",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/230909.npz",
+    "query_id": "230909",
+    "top1_id": "230909",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/231494.npz",
+    "query_id": "231494",
+    "top1_id": "206544",
+    "similarity": "0.489833"
+  },
+  {
+    "query_file": "retrieval_data/query/2335.npz",
+    "query_id": "2335",
+    "top1_id": "2335",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/234426.npz",
+    "query_id": "234426",
+    "top1_id": "234426",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/240303.npz",
+    "query_id": "240303",
+    "top1_id": "240303",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/240957.npz",
+    "query_id": "240957",
+    "top1_id": "940791",
+    "similarity": "0.470840"
+  },
+  {
+    "query_file": "retrieval_data/query/241758.npz",
+    "query_id": "241758",
+    "top1_id": "241758",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/241961.npz",
+    "query_id": "241961",
+    "top1_id": "241961",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/243346.npz",
+    "query_id": "243346",
+    "top1_id": "243346",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/24355.npz",
+    "query_id": "24355",
+    "top1_id": "893036",
+    "similarity": "0.420161"
+  },
+  {
+    "query_file": "retrieval_data/query/243736.npz",
+    "query_id": "243736",
+    "top1_id": "894093",
+    "similarity": "0.399664"
+  },
+  {
+    "query_file": "retrieval_data/query/243771.npz",
+    "query_id": "243771",
+    "top1_id": "243771",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/24558.npz",
+    "query_id": "24558",
+    "top1_id": "24558",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/245642.npz",
+    "query_id": "245642",
+    "top1_id": "245642",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/246113.npz",
+    "query_id": "246113",
+    "top1_id": "246113",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/24617.npz",
+    "query_id": "24617",
+    "top1_id": "24617",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/246809.npz",
+    "query_id": "246809",
+    "top1_id": "246809",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/24770.npz",
+    "query_id": "24770",
+    "top1_id": "24770",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/248000.npz",
+    "query_id": "248000",
+    "top1_id": "248000",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/248698.npz",
+    "query_id": "248698",
+    "top1_id": "248698",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/250812.npz",
+    "query_id": "250812",
+    "top1_id": "27202",
+    "similarity": "0.557417"
+  },
+  {
+    "query_file": "retrieval_data/query/251535.npz",
+    "query_id": "251535",
+    "top1_id": "424072",
+    "similarity": "0.450314"
+  },
+  {
+    "query_file": "retrieval_data/query/251915.npz",
+    "query_id": "251915",
+    "top1_id": "251915",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/254347.npz",
+    "query_id": "254347",
+    "top1_id": "238043",
+    "similarity": "0.383283"
+  },
+  {
+    "query_file": "retrieval_data/query/258796.npz",
+    "query_id": "258796",
+    "top1_id": "258796",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/259956.npz",
+    "query_id": "259956",
+    "top1_id": "259956",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/263751.npz",
+    "query_id": "263751",
+    "top1_id": "263751",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/264330.npz",
+    "query_id": "264330",
+    "top1_id": "264330",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/265114.npz",
+    "query_id": "265114",
+    "top1_id": "265114",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/267026.npz",
+    "query_id": "267026",
+    "top1_id": "267026",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/270728.npz",
+    "query_id": "270728",
+    "top1_id": "270728",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/27202.npz",
+    "query_id": "27202",
+    "top1_id": "27202",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/272501.npz",
+    "query_id": "272501",
+    "top1_id": "272501",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/273741.npz",
+    "query_id": "273741",
+    "top1_id": "273741",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/274186.npz",
+    "query_id": "274186",
+    "top1_id": "274186",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/274619.npz",
+    "query_id": "274619",
+    "top1_id": "274619",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/275016.npz",
+    "query_id": "275016",
+    "top1_id": "275016",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/275259.npz",
+    "query_id": "275259",
+    "top1_id": "275259",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/276216.npz",
+    "query_id": "276216",
+    "top1_id": "276216",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/276357.npz",
+    "query_id": "276357",
+    "top1_id": "709741",
+    "similarity": "0.350590"
+  },
+  {
+    "query_file": "retrieval_data/query/276670.npz",
+    "query_id": "276670",
+    "top1_id": "228528",
+    "similarity": "0.514373"
+  },
+  {
+    "query_file": "retrieval_data/query/278202.npz",
+    "query_id": "278202",
+    "top1_id": "278202",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/278884.npz",
+    "query_id": "278884",
+    "top1_id": "278884",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/280979.npz",
+    "query_id": "280979",
+    "top1_id": "280979",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/281726.npz",
+    "query_id": "281726",
+    "top1_id": "281726",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/281932.npz",
+    "query_id": "281932",
+    "top1_id": "281932",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/284823.npz",
+    "query_id": "284823",
+    "top1_id": "284823",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/288647.npz",
+    "query_id": "288647",
+    "top1_id": "741848",
+    "similarity": "0.391456"
+  },
+  {
+    "query_file": "retrieval_data/query/288917.npz",
+    "query_id": "288917",
+    "top1_id": "667572",
+    "similarity": "0.385309"
+  },
+  {
+    "query_file": "retrieval_data/query/288983.npz",
+    "query_id": "288983",
+    "top1_id": "57159",
+    "similarity": "0.451963"
+  },
+  {
+    "query_file": "retrieval_data/query/289782.npz",
+    "query_id": "289782",
+    "top1_id": "289782",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/290581.npz",
+    "query_id": "290581",
+    "top1_id": "290581",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/29084.npz",
+    "query_id": "29084",
+    "top1_id": "29084",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/291851.npz",
+    "query_id": "291851",
+    "top1_id": "726742",
+    "similarity": "0.437662"
+  },
+  {
+    "query_file": "retrieval_data/query/294611.npz",
+    "query_id": "294611",
+    "top1_id": "294611",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/299171.npz",
+    "query_id": "299171",
+    "top1_id": "299171",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/299359.npz",
+    "query_id": "299359",
+    "top1_id": "299359",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/300466.npz",
+    "query_id": "300466",
+    "top1_id": "300466",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/302763.npz",
+    "query_id": "302763",
+    "top1_id": "302763",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/305026.npz",
+    "query_id": "305026",
+    "top1_id": "791214",
+    "similarity": "0.537046"
+  },
+  {
+    "query_file": "retrieval_data/query/305426.npz",
+    "query_id": "305426",
+    "top1_id": "305426",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/30613.npz",
+    "query_id": "30613",
+    "top1_id": "774763",
+    "similarity": "0.435194"
+  },
+  {
+    "query_file": "retrieval_data/query/310411.npz",
+    "query_id": "310411",
+    "top1_id": "310411",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/31206.npz",
+    "query_id": "31206",
+    "top1_id": "9394",
+    "similarity": "0.487966"
+  },
+  {
+    "query_file": "retrieval_data/query/314339.npz",
+    "query_id": "314339",
+    "top1_id": "314339",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/314530.npz",
+    "query_id": "314530",
+    "top1_id": "314530",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/314601.npz",
+    "query_id": "314601",
+    "top1_id": "314601",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/315681.npz",
+    "query_id": "315681",
+    "top1_id": "315681",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/316137.npz",
+    "query_id": "316137",
+    "top1_id": "316137",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/317360.npz",
+    "query_id": "317360",
+    "top1_id": "317360",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/321233.npz",
+    "query_id": "321233",
+    "top1_id": "321233",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/323478.npz",
+    "query_id": "323478",
+    "top1_id": "323478",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/323987.npz",
+    "query_id": "323987",
+    "top1_id": "323987",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/325321.npz",
+    "query_id": "325321",
+    "top1_id": "325321",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/325926.npz",
+    "query_id": "325926",
+    "top1_id": "325926",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/326490.npz",
+    "query_id": "326490",
+    "top1_id": "219069",
+    "similarity": "0.460171"
+  },
+  {
+    "query_file": "retrieval_data/query/327702.npz",
+    "query_id": "327702",
+    "top1_id": "209639",
+    "similarity": "0.435787"
+  },
+  {
+    "query_file": "retrieval_data/query/328329.npz",
+    "query_id": "328329",
+    "top1_id": "328329",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/329184.npz",
+    "query_id": "329184",
+    "top1_id": "397056",
+    "similarity": "0.503385"
+  },
+  {
+    "query_file": "retrieval_data/query/329320.npz",
+    "query_id": "329320",
+    "top1_id": "329320",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/332223.npz",
+    "query_id": "332223",
+    "top1_id": "332223",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/332693.npz",
+    "query_id": "332693",
+    "top1_id": "332693",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/33385.npz",
+    "query_id": "33385",
+    "top1_id": "521072",
+    "similarity": "0.455282"
+  },
+  {
+    "query_file": "retrieval_data/query/334854.npz",
+    "query_id": "334854",
+    "top1_id": "334854",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/335400.npz",
+    "query_id": "335400",
+    "top1_id": "335400",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/338678.npz",
+    "query_id": "338678",
+    "top1_id": "338678",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/33872.npz",
+    "query_id": "33872",
+    "top1_id": "33872",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/341132.npz",
+    "query_id": "341132",
+    "top1_id": "341132",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/344335.npz",
+    "query_id": "344335",
+    "top1_id": "859307",
+    "similarity": "0.524634"
+  },
+  {
+    "query_file": "retrieval_data/query/346822.npz",
+    "query_id": "346822",
+    "top1_id": "346822",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/34913.npz",
+    "query_id": "34913",
+    "top1_id": "34913",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/349585.npz",
+    "query_id": "349585",
+    "top1_id": "349585",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/351656.npz",
+    "query_id": "351656",
+    "top1_id": "351656",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/354765.npz",
+    "query_id": "354765",
+    "top1_id": "354765",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/356962.npz",
+    "query_id": "356962",
+    "top1_id": "356962",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/359249.npz",
+    "query_id": "359249",
+    "top1_id": "359249",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/361281.npz",
+    "query_id": "361281",
+    "top1_id": "361281",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/362657.npz",
+    "query_id": "362657",
+    "top1_id": "271435",
+    "similarity": "0.424439"
+  },
+  {
+    "query_file": "retrieval_data/query/364625.npz",
+    "query_id": "364625",
+    "top1_id": "364625",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/365439.npz",
+    "query_id": "365439",
+    "top1_id": "417860",
+    "similarity": "0.533659"
+  },
+  {
+    "query_file": "retrieval_data/query/368685.npz",
+    "query_id": "368685",
+    "top1_id": "368685",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/369803.npz",
+    "query_id": "369803",
+    "top1_id": "158289",
+    "similarity": "0.462693"
+  },
+  {
+    "query_file": "retrieval_data/query/373977.npz",
+    "query_id": "373977",
+    "top1_id": "373977",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/374105.npz",
+    "query_id": "374105",
+    "top1_id": "281807",
+    "similarity": "0.469575"
+  },
+  {
+    "query_file": "retrieval_data/query/374532.npz",
+    "query_id": "374532",
+    "top1_id": "566198",
+    "similarity": "0.401178"
+  },
+  {
+    "query_file": "retrieval_data/query/376342.npz",
+    "query_id": "376342",
+    "top1_id": "376342",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/377801.npz",
+    "query_id": "377801",
+    "top1_id": "377801",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/377970.npz",
+    "query_id": "377970",
+    "top1_id": "377970",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/378320.npz",
+    "query_id": "378320",
+    "top1_id": "833613",
+    "similarity": "0.429806"
+  },
+  {
+    "query_file": "retrieval_data/query/379543.npz",
+    "query_id": "379543",
+    "top1_id": "379543",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/379752.npz",
+    "query_id": "379752",
+    "top1_id": "379752",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/380736.npz",
+    "query_id": "380736",
+    "top1_id": "380736",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/38103.npz",
+    "query_id": "38103",
+    "top1_id": "24558",
+    "similarity": "0.399915"
+  },
+  {
+    "query_file": "retrieval_data/query/381058.npz",
+    "query_id": "381058",
+    "top1_id": "381058",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/386452.npz",
+    "query_id": "386452",
+    "top1_id": "325276",
+    "similarity": "0.625726"
+  },
+  {
+    "query_file": "retrieval_data/query/386925.npz",
+    "query_id": "386925",
+    "top1_id": "386925",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/389680.npz",
+    "query_id": "389680",
+    "top1_id": "389680",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/391840.npz",
+    "query_id": "391840",
+    "top1_id": "391840",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/396085.npz",
+    "query_id": "396085",
+    "top1_id": "396085",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/400889.npz",
+    "query_id": "400889",
+    "top1_id": "400889",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/402955.npz",
+    "query_id": "402955",
+    "top1_id": "354765",
+    "similarity": "0.399318"
+  },
+  {
+    "query_file": "retrieval_data/query/403632.npz",
+    "query_id": "403632",
+    "top1_id": "403632",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/403660.npz",
+    "query_id": "403660",
+    "top1_id": "811793",
+    "similarity": "0.517271"
+  },
+  {
+    "query_file": "retrieval_data/query/403832.npz",
+    "query_id": "403832",
+    "top1_id": "624951",
+    "similarity": "0.428622"
+  },
+  {
+    "query_file": "retrieval_data/query/404807.npz",
+    "query_id": "404807",
+    "top1_id": "404807",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/405578.npz",
+    "query_id": "405578",
+    "top1_id": "405578",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/405887.npz",
+    "query_id": "405887",
+    "top1_id": "111541",
+    "similarity": "0.505275"
+  },
+  {
+    "query_file": "retrieval_data/query/407186.npz",
+    "query_id": "407186",
+    "top1_id": "407186",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/407257.npz",
+    "query_id": "407257",
+    "top1_id": "407257",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/415441.npz",
+    "query_id": "415441",
+    "top1_id": "415441",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/415789.npz",
+    "query_id": "415789",
+    "top1_id": "415789",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/417860.npz",
+    "query_id": "417860",
+    "top1_id": "417860",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/417871.npz",
+    "query_id": "417871",
+    "top1_id": "417871",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/417927.npz",
+    "query_id": "417927",
+    "top1_id": "417927",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/418539.npz",
+    "query_id": "418539",
+    "top1_id": "418539",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/418940.npz",
+    "query_id": "418940",
+    "top1_id": "418940",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/420039.npz",
+    "query_id": "420039",
+    "top1_id": "420039",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/424072.npz",
+    "query_id": "424072",
+    "top1_id": "424072",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/425564.npz",
+    "query_id": "425564",
+    "top1_id": "425564",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/426107.npz",
+    "query_id": "426107",
+    "top1_id": "426107",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/430176.npz",
+    "query_id": "430176",
+    "top1_id": "430176",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/431069.npz",
+    "query_id": "431069",
+    "top1_id": "251915",
+    "similarity": "0.452205"
+  },
+  {
+    "query_file": "retrieval_data/query/431363.npz",
+    "query_id": "431363",
+    "top1_id": "431363",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/433602.npz",
+    "query_id": "433602",
+    "top1_id": "433602",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/437790.npz",
+    "query_id": "437790",
+    "top1_id": "437790",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/438690.npz",
+    "query_id": "438690",
+    "top1_id": "438690",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/440867.npz",
+    "query_id": "440867",
+    "top1_id": "440867",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/4423.npz",
+    "query_id": "4423",
+    "top1_id": "4423",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/442374.npz",
+    "query_id": "442374",
+    "top1_id": "442374",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/443308.npz",
+    "query_id": "443308",
+    "top1_id": "443308",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/443363.npz",
+    "query_id": "443363",
+    "top1_id": "896840",
+    "similarity": "0.458358"
+  },
+  {
+    "query_file": "retrieval_data/query/443426.npz",
+    "query_id": "443426",
+    "top1_id": "443426",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/446055.npz",
+    "query_id": "446055",
+    "top1_id": "446055",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/447045.npz",
+    "query_id": "447045",
+    "top1_id": "717015",
+    "similarity": "0.501563"
+  },
+  {
+    "query_file": "retrieval_data/query/447175.npz",
+    "query_id": "447175",
+    "top1_id": "447175",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/447291.npz",
+    "query_id": "447291",
+    "top1_id": "447291",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/449662.npz",
+    "query_id": "449662",
+    "top1_id": "449662",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/45008.npz",
+    "query_id": "45008",
+    "top1_id": "45008",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/451174.npz",
+    "query_id": "451174",
+    "top1_id": "705470",
+    "similarity": "0.455910"
+  },
+  {
+    "query_file": "retrieval_data/query/451488.npz",
+    "query_id": "451488",
+    "top1_id": "451488",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/452516.npz",
+    "query_id": "452516",
+    "top1_id": "894179",
+    "similarity": "0.422869"
+  },
+  {
+    "query_file": "retrieval_data/query/452773.npz",
+    "query_id": "452773",
+    "top1_id": "827998",
+    "similarity": "0.512330"
+  },
+  {
+    "query_file": "retrieval_data/query/452802.npz",
+    "query_id": "452802",
+    "top1_id": "452802",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/456075.npz",
+    "query_id": "456075",
+    "top1_id": "456075",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/457082.npz",
+    "query_id": "457082",
+    "top1_id": "373977",
+    "similarity": "0.480206"
+  },
+  {
+    "query_file": "retrieval_data/query/457802.npz",
+    "query_id": "457802",
+    "top1_id": "457802",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/459976.npz",
+    "query_id": "459976",
+    "top1_id": "459976",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/460098.npz",
+    "query_id": "460098",
+    "top1_id": "460098",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/461346.npz",
+    "query_id": "461346",
+    "top1_id": "461346",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/463109.npz",
+    "query_id": "463109",
+    "top1_id": "463109",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/463232.npz",
+    "query_id": "463232",
+    "top1_id": "463232",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/464780.npz",
+    "query_id": "464780",
+    "top1_id": "464780",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/465181.npz",
+    "query_id": "465181",
+    "top1_id": "5242",
+    "similarity": "0.480280"
+  },
+  {
+    "query_file": "retrieval_data/query/465258.npz",
+    "query_id": "465258",
+    "top1_id": "403632",
+    "similarity": "0.443355"
+  },
+  {
+    "query_file": "retrieval_data/query/465881.npz",
+    "query_id": "465881",
+    "top1_id": "465881",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/46748.npz",
+    "query_id": "46748",
+    "top1_id": "719655",
+    "similarity": "0.400448"
+  },
+  {
+    "query_file": "retrieval_data/query/468090.npz",
+    "query_id": "468090",
+    "top1_id": "468090",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/470283.npz",
+    "query_id": "470283",
+    "top1_id": "470283",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/471230.npz",
+    "query_id": "471230",
+    "top1_id": "471230",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/47129.npz",
+    "query_id": "47129",
+    "top1_id": "47129",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/471469.npz",
+    "query_id": "471469",
+    "top1_id": "471469",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/473535.npz",
+    "query_id": "473535",
+    "top1_id": "473535",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/47612.npz",
+    "query_id": "47612",
+    "top1_id": "894093",
+    "similarity": "0.516785"
+  },
+  {
+    "query_file": "retrieval_data/query/479552.npz",
+    "query_id": "479552",
+    "top1_id": "479552",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/481885.npz",
+    "query_id": "481885",
+    "top1_id": "481885",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/485486.npz",
+    "query_id": "485486",
+    "top1_id": "485486",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/488619.npz",
+    "query_id": "488619",
+    "top1_id": "488619",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/489800.npz",
+    "query_id": "489800",
+    "top1_id": "489800",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/490149.npz",
+    "query_id": "490149",
+    "top1_id": "490149",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/491044.npz",
+    "query_id": "491044",
+    "top1_id": "127887",
+    "similarity": "0.395496"
+  },
+  {
+    "query_file": "retrieval_data/query/491401.npz",
+    "query_id": "491401",
+    "top1_id": "491401",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/493515.npz",
+    "query_id": "493515",
+    "top1_id": "128201",
+    "similarity": "0.400772"
+  },
+  {
+    "query_file": "retrieval_data/query/49462.npz",
+    "query_id": "49462",
+    "top1_id": "49462",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/495499.npz",
+    "query_id": "495499",
+    "top1_id": "495499",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/496395.npz",
+    "query_id": "496395",
+    "top1_id": "496395",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/497009.npz",
+    "query_id": "497009",
+    "top1_id": "497009",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/498270.npz",
+    "query_id": "498270",
+    "top1_id": "498270",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/500659.npz",
+    "query_id": "500659",
+    "top1_id": "500659",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/50091.npz",
+    "query_id": "50091",
+    "top1_id": "501253",
+    "similarity": "0.425876"
+  },
+  {
+    "query_file": "retrieval_data/query/501253.npz",
+    "query_id": "501253",
+    "top1_id": "501253",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/502375.npz",
+    "query_id": "502375",
+    "top1_id": "502375",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/503423.npz",
+    "query_id": "503423",
+    "top1_id": "503423",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/505807.npz",
+    "query_id": "505807",
+    "top1_id": "505807",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/505989.npz",
+    "query_id": "505989",
+    "top1_id": "505989",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/507594.npz",
+    "query_id": "507594",
+    "top1_id": "507594",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/512856.npz",
+    "query_id": "512856",
+    "top1_id": "512856",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/517396.npz",
+    "query_id": "517396",
+    "top1_id": "875530",
+    "similarity": "0.426895"
+  },
+  {
+    "query_file": "retrieval_data/query/517645.npz",
+    "query_id": "517645",
+    "top1_id": "517645",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/517780.npz",
+    "query_id": "517780",
+    "top1_id": "517780",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/521072.npz",
+    "query_id": "521072",
+    "top1_id": "521072",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/521131.npz",
+    "query_id": "521131",
+    "top1_id": "521131",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/522480.npz",
+    "query_id": "522480",
+    "top1_id": "87217",
+    "similarity": "0.444296"
+  },
+  {
+    "query_file": "retrieval_data/query/523731.npz",
+    "query_id": "523731",
+    "top1_id": "9394",
+    "similarity": "0.489042"
+  },
+  {
+    "query_file": "retrieval_data/query/5242.npz",
+    "query_id": "5242",
+    "top1_id": "5242",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/527998.npz",
+    "query_id": "527998",
+    "top1_id": "928213",
+    "similarity": "0.453967"
+  },
+  {
+    "query_file": "retrieval_data/query/52842.npz",
+    "query_id": "52842",
+    "top1_id": "52842",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/529255.npz",
+    "query_id": "529255",
+    "top1_id": "529255",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/533375.npz",
+    "query_id": "533375",
+    "top1_id": "533375",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/536171.npz",
+    "query_id": "536171",
+    "top1_id": "536171",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/537772.npz",
+    "query_id": "537772",
+    "top1_id": "537772",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/540035.npz",
+    "query_id": "540035",
+    "top1_id": "540035",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/540953.npz",
+    "query_id": "540953",
+    "top1_id": "540953",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/54264.npz",
+    "query_id": "54264",
+    "top1_id": "54264",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/543255.npz",
+    "query_id": "543255",
+    "top1_id": "543255",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/543320.npz",
+    "query_id": "543320",
+    "top1_id": "543320",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/543564.npz",
+    "query_id": "543564",
+    "top1_id": "253115",
+    "similarity": "0.435518"
+  },
+  {
+    "query_file": "retrieval_data/query/546306.npz",
+    "query_id": "546306",
+    "top1_id": "546306",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/546732.npz",
+    "query_id": "546732",
+    "top1_id": "546732",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/54688.npz",
+    "query_id": "54688",
+    "top1_id": "8459",
+    "similarity": "0.432409"
+  },
+  {
+    "query_file": "retrieval_data/query/547651.npz",
+    "query_id": "547651",
+    "top1_id": "547651",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/548275.npz",
+    "query_id": "548275",
+    "top1_id": "548275",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/549772.npz",
+    "query_id": "549772",
+    "top1_id": "549772",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/550958.npz",
+    "query_id": "550958",
+    "top1_id": "550958",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/551431.npz",
+    "query_id": "551431",
+    "top1_id": "551431",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/554438.npz",
+    "query_id": "554438",
+    "top1_id": "554438",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/554995.npz",
+    "query_id": "554995",
+    "top1_id": "489800",
+    "similarity": "0.485437"
+  },
+  {
+    "query_file": "retrieval_data/query/55510.npz",
+    "query_id": "55510",
+    "top1_id": "55510",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/562639.npz",
+    "query_id": "562639",
+    "top1_id": "562639",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/563042.npz",
+    "query_id": "563042",
+    "top1_id": "64102",
+    "similarity": "0.466490"
+  },
+  {
+    "query_file": "retrieval_data/query/563735.npz",
+    "query_id": "563735",
+    "top1_id": "563735",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/564324.npz",
+    "query_id": "564324",
+    "top1_id": "564324",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/564865.npz",
+    "query_id": "564865",
+    "top1_id": "564865",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/565089.npz",
+    "query_id": "565089",
+    "top1_id": "565089",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/565685.npz",
+    "query_id": "565685",
+    "top1_id": "565685",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/566198.npz",
+    "query_id": "566198",
+    "top1_id": "566198",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/566632.npz",
+    "query_id": "566632",
+    "top1_id": "566632",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/568318.npz",
+    "query_id": "568318",
+    "top1_id": "568318",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/57159.npz",
+    "query_id": "57159",
+    "top1_id": "57159",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/575849.npz",
+    "query_id": "575849",
+    "top1_id": "575849",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/576086.npz",
+    "query_id": "576086",
+    "top1_id": "576086",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/57736.npz",
+    "query_id": "57736",
+    "top1_id": "57736",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/578892.npz",
+    "query_id": "578892",
+    "top1_id": "578892",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/580259.npz",
+    "query_id": "580259",
+    "top1_id": "580259",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/580784.npz",
+    "query_id": "580784",
+    "top1_id": "580784",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/582515.npz",
+    "query_id": "582515",
+    "top1_id": "582515",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/583348.npz",
+    "query_id": "583348",
+    "top1_id": "584765",
+    "similarity": "0.507001"
+  },
+  {
+    "query_file": "retrieval_data/query/584186.npz",
+    "query_id": "584186",
+    "top1_id": "584186",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/58465.npz",
+    "query_id": "58465",
+    "top1_id": "58465",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/585193.npz",
+    "query_id": "585193",
+    "top1_id": "86496",
+    "similarity": "0.530941"
+  },
+  {
+    "query_file": "retrieval_data/query/590485.npz",
+    "query_id": "590485",
+    "top1_id": "590485",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/590885.npz",
+    "query_id": "590885",
+    "top1_id": "590885",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/593555.npz",
+    "query_id": "593555",
+    "top1_id": "593555",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/595845.npz",
+    "query_id": "595845",
+    "top1_id": "595845",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/596623.npz",
+    "query_id": "596623",
+    "top1_id": "822379",
+    "similarity": "0.447566"
+  },
+  {
+    "query_file": "retrieval_data/query/597304.npz",
+    "query_id": "597304",
+    "top1_id": "597304",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/597520.npz",
+    "query_id": "597520",
+    "top1_id": "597520",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/598394.npz",
+    "query_id": "598394",
+    "top1_id": "598394",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/599909.npz",
+    "query_id": "599909",
+    "top1_id": "599909",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/601171.npz",
+    "query_id": "601171",
+    "top1_id": "601171",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/601884.npz",
+    "query_id": "601884",
+    "top1_id": "601884",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/604587.npz",
+    "query_id": "604587",
+    "top1_id": "604587",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/605892.npz",
+    "query_id": "605892",
+    "top1_id": "605892",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/609343.npz",
+    "query_id": "609343",
+    "top1_id": "651000",
+    "similarity": "0.431730"
+  },
+  {
+    "query_file": "retrieval_data/query/610925.npz",
+    "query_id": "610925",
+    "top1_id": "610925",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/615533.npz",
+    "query_id": "615533",
+    "top1_id": "615533",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/618790.npz",
+    "query_id": "618790",
+    "top1_id": "623944",
+    "similarity": "0.470947"
+  },
+  {
+    "query_file": "retrieval_data/query/623944.npz",
+    "query_id": "623944",
+    "top1_id": "623944",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/624462.npz",
+    "query_id": "624462",
+    "top1_id": "624462",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/624951.npz",
+    "query_id": "624951",
+    "top1_id": "624951",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/627454.npz",
+    "query_id": "627454",
+    "top1_id": "627454",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/627741.npz",
+    "query_id": "627741",
+    "top1_id": "627741",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/62905.npz",
+    "query_id": "62905",
+    "top1_id": "62905",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/629941.npz",
+    "query_id": "629941",
+    "top1_id": "629941",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/631953.npz",
+    "query_id": "631953",
+    "top1_id": "631953",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/6327.npz",
+    "query_id": "6327",
+    "top1_id": "566632",
+    "similarity": "0.486578"
+  },
+  {
+    "query_file": "retrieval_data/query/632952.npz",
+    "query_id": "632952",
+    "top1_id": "632952",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/636887.npz",
+    "query_id": "636887",
+    "top1_id": "636887",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/638604.npz",
+    "query_id": "638604",
+    "top1_id": "638604",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/638789.npz",
+    "query_id": "638789",
+    "top1_id": "246113",
+    "similarity": "0.498823"
+  },
+  {
+    "query_file": "retrieval_data/query/640971.npz",
+    "query_id": "640971",
+    "top1_id": "640971",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/641497.npz",
+    "query_id": "641497",
+    "top1_id": "641497",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/642360.npz",
+    "query_id": "642360",
+    "top1_id": "642360",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/644694.npz",
+    "query_id": "644694",
+    "top1_id": "644694",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/648923.npz",
+    "query_id": "648923",
+    "top1_id": "648923",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/649238.npz",
+    "query_id": "649238",
+    "top1_id": "649238",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/650206.npz",
+    "query_id": "650206",
+    "top1_id": "702422",
+    "similarity": "0.432499"
+  },
+  {
+    "query_file": "retrieval_data/query/650750.npz",
+    "query_id": "650750",
+    "top1_id": "650750",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/651000.npz",
+    "query_id": "651000",
+    "top1_id": "651000",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/651682.npz",
+    "query_id": "651682",
+    "top1_id": "651682",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/651884.npz",
+    "query_id": "651884",
+    "top1_id": "651884",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/653308.npz",
+    "query_id": "653308",
+    "top1_id": "653308",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/65497.npz",
+    "query_id": "65497",
+    "top1_id": "65497",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/655981.npz",
+    "query_id": "655981",
+    "top1_id": "655981",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/656069.npz",
+    "query_id": "656069",
+    "top1_id": "656069",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/656079.npz",
+    "query_id": "656079",
+    "top1_id": "656079",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/656478.npz",
+    "query_id": "656478",
+    "top1_id": "656478",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/656686.npz",
+    "query_id": "656686",
+    "top1_id": "656686",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/660858.npz",
+    "query_id": "660858",
+    "top1_id": "663636",
+    "similarity": "0.499210"
+  },
+  {
+    "query_file": "retrieval_data/query/6613.npz",
+    "query_id": "6613",
+    "top1_id": "6613",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/662185.npz",
+    "query_id": "662185",
+    "top1_id": "662185",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/662462.npz",
+    "query_id": "662462",
+    "top1_id": "319991",
+    "similarity": "0.532349"
+  },
+  {
+    "query_file": "retrieval_data/query/663636.npz",
+    "query_id": "663636",
+    "top1_id": "663636",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/666528.npz",
+    "query_id": "666528",
+    "top1_id": "666528",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/667572.npz",
+    "query_id": "667572",
+    "top1_id": "667572",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/667817.npz",
+    "query_id": "667817",
+    "top1_id": "540953",
+    "similarity": "0.498418"
+  },
+  {
+    "query_file": "retrieval_data/query/668470.npz",
+    "query_id": "668470",
+    "top1_id": "397056",
+    "similarity": "0.532014"
+  },
+  {
+    "query_file": "retrieval_data/query/669285.npz",
+    "query_id": "669285",
+    "top1_id": "669285",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/670932.npz",
+    "query_id": "670932",
+    "top1_id": "670932",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/671403.npz",
+    "query_id": "671403",
+    "top1_id": "671403",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/67257.npz",
+    "query_id": "67257",
+    "top1_id": "67257",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/673138.npz",
+    "query_id": "673138",
+    "top1_id": "673138",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/673503.npz",
+    "query_id": "673503",
+    "top1_id": "673503",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/675548.npz",
+    "query_id": "675548",
+    "top1_id": "675548",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/675729.npz",
+    "query_id": "675729",
+    "top1_id": "503423",
+    "similarity": "0.461576"
+  },
+  {
+    "query_file": "retrieval_data/query/67773.npz",
+    "query_id": "67773",
+    "top1_id": "67773",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/678718.npz",
+    "query_id": "678718",
+    "top1_id": "678718",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/679549.npz",
+    "query_id": "679549",
+    "top1_id": "679549",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/683615.npz",
+    "query_id": "683615",
+    "top1_id": "683615",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/683694.npz",
+    "query_id": "683694",
+    "top1_id": "774763",
+    "similarity": "0.469189"
+  },
+  {
+    "query_file": "retrieval_data/query/686617.npz",
+    "query_id": "686617",
+    "top1_id": "686617",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/68858.npz",
+    "query_id": "68858",
+    "top1_id": "68858",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/689123.npz",
+    "query_id": "689123",
+    "top1_id": "689123",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/689841.npz",
+    "query_id": "689841",
+    "top1_id": "689841",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/693068.npz",
+    "query_id": "693068",
+    "top1_id": "943459",
+    "similarity": "0.492878"
+  },
+  {
+    "query_file": "retrieval_data/query/69426.npz",
+    "query_id": "69426",
+    "top1_id": "69426",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/696040.npz",
+    "query_id": "696040",
+    "top1_id": "696040",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/696396.npz",
+    "query_id": "696396",
+    "top1_id": "696396",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/69645.npz",
+    "query_id": "69645",
+    "top1_id": "69645",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/696567.npz",
+    "query_id": "696567",
+    "top1_id": "696567",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/696904.npz",
+    "query_id": "696904",
+    "top1_id": "729941",
+    "similarity": "0.483606"
+  },
+  {
+    "query_file": "retrieval_data/query/697457.npz",
+    "query_id": "697457",
+    "top1_id": "258796",
+    "similarity": "0.424318"
+  },
+  {
+    "query_file": "retrieval_data/query/697875.npz",
+    "query_id": "697875",
+    "top1_id": "697875",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/699662.npz",
+    "query_id": "699662",
+    "top1_id": "699662",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/699677.npz",
+    "query_id": "699677",
+    "top1_id": "699677",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/700878.npz",
+    "query_id": "700878",
+    "top1_id": "641497",
+    "similarity": "0.510946"
+  },
+  {
+    "query_file": "retrieval_data/query/702422.npz",
+    "query_id": "702422",
+    "top1_id": "702422",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/703954.npz",
+    "query_id": "703954",
+    "top1_id": "835914",
+    "similarity": "0.395921"
+  },
+  {
+    "query_file": "retrieval_data/query/705112.npz",
+    "query_id": "705112",
+    "top1_id": "705112",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/709741.npz",
+    "query_id": "709741",
+    "top1_id": "709741",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/709893.npz",
+    "query_id": "709893",
+    "top1_id": "709893",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/712560.npz",
+    "query_id": "712560",
+    "top1_id": "438886",
+    "similarity": "0.465080"
+  },
+  {
+    "query_file": "retrieval_data/query/712730.npz",
+    "query_id": "712730",
+    "top1_id": "712730",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/71311.npz",
+    "query_id": "71311",
+    "top1_id": "394834",
+    "similarity": "0.474723"
+  },
+  {
+    "query_file": "retrieval_data/query/714841.npz",
+    "query_id": "714841",
+    "top1_id": "714841",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/714918.npz",
+    "query_id": "714918",
+    "top1_id": "714918",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/716497.npz",
+    "query_id": "716497",
+    "top1_id": "55510",
+    "similarity": "0.495077"
+  },
+  {
+    "query_file": "retrieval_data/query/717015.npz",
+    "query_id": "717015",
+    "top1_id": "717015",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/71743.npz",
+    "query_id": "71743",
+    "top1_id": "71743",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/719655.npz",
+    "query_id": "719655",
+    "top1_id": "719655",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/720285.npz",
+    "query_id": "720285",
+    "top1_id": "936778",
+    "similarity": "0.501972"
+  },
+  {
+    "query_file": "retrieval_data/query/722521.npz",
+    "query_id": "722521",
+    "top1_id": "430176",
+    "similarity": "0.434746"
+  },
+  {
+    "query_file": "retrieval_data/query/723686.npz",
+    "query_id": "723686",
+    "top1_id": "597304",
+    "similarity": "0.471069"
+  },
+  {
+    "query_file": "retrieval_data/query/724192.npz",
+    "query_id": "724192",
+    "top1_id": "553166",
+    "similarity": "0.446190"
+  },
+  {
+    "query_file": "retrieval_data/query/724403.npz",
+    "query_id": "724403",
+    "top1_id": "724403",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/725267.npz",
+    "query_id": "725267",
+    "top1_id": "725267",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/725338.npz",
+    "query_id": "725338",
+    "top1_id": "725338",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/726742.npz",
+    "query_id": "726742",
+    "top1_id": "726742",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/727005.npz",
+    "query_id": "727005",
+    "top1_id": "87217",
+    "similarity": "0.469184"
+  },
+  {
+    "query_file": "retrieval_data/query/728373.npz",
+    "query_id": "728373",
+    "top1_id": "728373",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/729941.npz",
+    "query_id": "729941",
+    "top1_id": "729941",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/7315.npz",
+    "query_id": "7315",
+    "top1_id": "7315",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/731631.npz",
+    "query_id": "731631",
+    "top1_id": "731631",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/733541.npz",
+    "query_id": "733541",
+    "top1_id": "922439",
+    "similarity": "0.477082"
+  },
+  {
+    "query_file": "retrieval_data/query/734562.npz",
+    "query_id": "734562",
+    "top1_id": "734562",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/737855.npz",
+    "query_id": "737855",
+    "top1_id": "723624",
+    "similarity": "0.629480"
+  },
+  {
+    "query_file": "retrieval_data/query/737950.npz",
+    "query_id": "737950",
+    "top1_id": "479552",
+    "similarity": "0.447050"
+  },
+  {
+    "query_file": "retrieval_data/query/739053.npz",
+    "query_id": "739053",
+    "top1_id": "739053",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/739126.npz",
+    "query_id": "739126",
+    "top1_id": "739126",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/739935.npz",
+    "query_id": "739935",
+    "top1_id": "739935",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/740534.npz",
+    "query_id": "740534",
+    "top1_id": "800269",
+    "similarity": "0.589782"
+  },
+  {
+    "query_file": "retrieval_data/query/740589.npz",
+    "query_id": "740589",
+    "top1_id": "740589",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/741252.npz",
+    "query_id": "741252",
+    "top1_id": "273741",
+    "similarity": "0.529704"
+  },
+  {
+    "query_file": "retrieval_data/query/741726.npz",
+    "query_id": "741726",
+    "top1_id": "320093",
+    "similarity": "0.566749"
+  },
+  {
+    "query_file": "retrieval_data/query/741848.npz",
+    "query_id": "741848",
+    "top1_id": "741848",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/742475.npz",
+    "query_id": "742475",
+    "top1_id": "742475",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/742673.npz",
+    "query_id": "742673",
+    "top1_id": "346822",
+    "similarity": "0.438215"
+  },
+  {
+    "query_file": "retrieval_data/query/743347.npz",
+    "query_id": "743347",
+    "top1_id": "743347",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/744075.npz",
+    "query_id": "744075",
+    "top1_id": "601884",
+    "similarity": "0.580096"
+  },
+  {
+    "query_file": "retrieval_data/query/744736.npz",
+    "query_id": "744736",
+    "top1_id": "744736",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/746460.npz",
+    "query_id": "746460",
+    "top1_id": "746460",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/748533.npz",
+    "query_id": "748533",
+    "top1_id": "748533",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/749914.npz",
+    "query_id": "749914",
+    "top1_id": "749914",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/750065.npz",
+    "query_id": "750065",
+    "top1_id": "750065",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/751101.npz",
+    "query_id": "751101",
+    "top1_id": "751101",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/753320.npz",
+    "query_id": "753320",
+    "top1_id": "263751",
+    "similarity": "0.598823"
+  },
+  {
+    "query_file": "retrieval_data/query/755578.npz",
+    "query_id": "755578",
+    "top1_id": "755578",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/75759.npz",
+    "query_id": "75759",
+    "top1_id": "75759",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/757825.npz",
+    "query_id": "757825",
+    "top1_id": "757825",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/760166.npz",
+    "query_id": "760166",
+    "top1_id": "850137",
+    "similarity": "0.472687"
+  },
+  {
+    "query_file": "retrieval_data/query/760322.npz",
+    "query_id": "760322",
+    "top1_id": "760322",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/760684.npz",
+    "query_id": "760684",
+    "top1_id": "325276",
+    "similarity": "0.446169"
+  },
+  {
+    "query_file": "retrieval_data/query/761603.npz",
+    "query_id": "761603",
+    "top1_id": "761603",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/761654.npz",
+    "query_id": "761654",
+    "top1_id": "761654",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/76192.npz",
+    "query_id": "76192",
+    "top1_id": "914779",
+    "similarity": "0.459134"
+  },
+  {
+    "query_file": "retrieval_data/query/764583.npz",
+    "query_id": "764583",
+    "top1_id": "764583",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/765681.npz",
+    "query_id": "765681",
+    "top1_id": "21671",
+    "similarity": "0.407299"
+  },
+  {
+    "query_file": "retrieval_data/query/767243.npz",
+    "query_id": "767243",
+    "top1_id": "767243",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/767880.npz",
+    "query_id": "767880",
+    "top1_id": "767880",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/76796.npz",
+    "query_id": "76796",
+    "top1_id": "76796",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/770540.npz",
+    "query_id": "770540",
+    "top1_id": "770540",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/770737.npz",
+    "query_id": "770737",
+    "top1_id": "770737",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/773398.npz",
+    "query_id": "773398",
+    "top1_id": "773398",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/773774.npz",
+    "query_id": "773774",
+    "top1_id": "576086",
+    "similarity": "0.335165"
+  },
+  {
+    "query_file": "retrieval_data/query/774714.npz",
+    "query_id": "774714",
+    "top1_id": "290838",
+    "similarity": "0.506289"
+  },
+  {
+    "query_file": "retrieval_data/query/774763.npz",
+    "query_id": "774763",
+    "top1_id": "774763",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/776765.npz",
+    "query_id": "776765",
+    "top1_id": "776765",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/778197.npz",
+    "query_id": "778197",
+    "top1_id": "778197",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/782428.npz",
+    "query_id": "782428",
+    "top1_id": "782428",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/783723.npz",
+    "query_id": "783723",
+    "top1_id": "783723",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/785256.npz",
+    "query_id": "785256",
+    "top1_id": "785256",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/78544.npz",
+    "query_id": "78544",
+    "top1_id": "584765",
+    "similarity": "0.491329"
+  },
+  {
+    "query_file": "retrieval_data/query/785879.npz",
+    "query_id": "785879",
+    "top1_id": "785879",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/787457.npz",
+    "query_id": "787457",
+    "top1_id": "787457",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/788469.npz",
+    "query_id": "788469",
+    "top1_id": "57736",
+    "similarity": "0.417012"
+  },
+  {
+    "query_file": "retrieval_data/query/790995.npz",
+    "query_id": "790995",
+    "top1_id": "790995",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/791214.npz",
+    "query_id": "791214",
+    "top1_id": "791214",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/791626.npz",
+    "query_id": "791626",
+    "top1_id": "791626",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/793904.npz",
+    "query_id": "793904",
+    "top1_id": "793904",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/796924.npz",
+    "query_id": "796924",
+    "top1_id": "796924",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/798388.npz",
+    "query_id": "798388",
+    "top1_id": "798388",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/798529.npz",
+    "query_id": "798529",
+    "top1_id": "798529",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/801997.npz",
+    "query_id": "801997",
+    "top1_id": "801997",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/803413.npz",
+    "query_id": "803413",
+    "top1_id": "803413",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/80448.npz",
+    "query_id": "80448",
+    "top1_id": "80448",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/804912.npz",
+    "query_id": "804912",
+    "top1_id": "804912",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/805452.npz",
+    "query_id": "805452",
+    "top1_id": "805452",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/805596.npz",
+    "query_id": "805596",
+    "top1_id": "805596",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/80833.npz",
+    "query_id": "80833",
+    "top1_id": "623944",
+    "similarity": "0.440231"
+  },
+  {
+    "query_file": "retrieval_data/query/809564.npz",
+    "query_id": "809564",
+    "top1_id": "809564",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/809956.npz",
+    "query_id": "809956",
+    "top1_id": "840503",
+    "similarity": "0.401002"
+  },
+  {
+    "query_file": "retrieval_data/query/810611.npz",
+    "query_id": "810611",
+    "top1_id": "828244",
+    "similarity": "0.437310"
+  },
+  {
+    "query_file": "retrieval_data/query/811793.npz",
+    "query_id": "811793",
+    "top1_id": "811793",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/812201.npz",
+    "query_id": "812201",
+    "top1_id": "812201",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/812207.npz",
+    "query_id": "812207",
+    "top1_id": "812207",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/81255.npz",
+    "query_id": "81255",
+    "top1_id": "81255",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/813135.npz",
+    "query_id": "813135",
+    "top1_id": "813135",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/816153.npz",
+    "query_id": "816153",
+    "top1_id": "816153",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/816491.npz",
+    "query_id": "816491",
+    "top1_id": "816491",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/816608.npz",
+    "query_id": "816608",
+    "top1_id": "521131",
+    "similarity": "0.384643"
+  },
+  {
+    "query_file": "retrieval_data/query/81770.npz",
+    "query_id": "81770",
+    "top1_id": "81770",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/821530.npz",
+    "query_id": "821530",
+    "top1_id": "601884",
+    "similarity": "0.480712"
+  },
+  {
+    "query_file": "retrieval_data/query/821925.npz",
+    "query_id": "821925",
+    "top1_id": "821925",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/822036.npz",
+    "query_id": "822036",
+    "top1_id": "822036",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/822379.npz",
+    "query_id": "822379",
+    "top1_id": "822379",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/827773.npz",
+    "query_id": "827773",
+    "top1_id": "827773",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/827998.npz",
+    "query_id": "827998",
+    "top1_id": "827998",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/828367.npz",
+    "query_id": "828367",
+    "top1_id": "828367",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/828832.npz",
+    "query_id": "828832",
+    "top1_id": "828832",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/828954.npz",
+    "query_id": "828954",
+    "top1_id": "828954",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/829217.npz",
+    "query_id": "829217",
+    "top1_id": "829217",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/831905.npz",
+    "query_id": "831905",
+    "top1_id": "504815",
+    "similarity": "0.473558"
+  },
+  {
+    "query_file": "retrieval_data/query/833183.npz",
+    "query_id": "833183",
+    "top1_id": "833183",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/83424.npz",
+    "query_id": "83424",
+    "top1_id": "83424",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/834256.npz",
+    "query_id": "834256",
+    "top1_id": "834256",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/835503.npz",
+    "query_id": "835503",
+    "top1_id": "835503",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/835575.npz",
+    "query_id": "835575",
+    "top1_id": "835575",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/835914.npz",
+    "query_id": "835914",
+    "top1_id": "835914",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/836707.npz",
+    "query_id": "836707",
+    "top1_id": "836707",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/83742.npz",
+    "query_id": "83742",
+    "top1_id": "83742",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/838000.npz",
+    "query_id": "838000",
+    "top1_id": "838000",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/839091.npz",
+    "query_id": "839091",
+    "top1_id": "839091",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/841443.npz",
+    "query_id": "841443",
+    "top1_id": "841443",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/843571.npz",
+    "query_id": "843571",
+    "top1_id": "843571",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/84471.npz",
+    "query_id": "84471",
+    "top1_id": "653308",
+    "similarity": "0.527443"
+  },
+  {
+    "query_file": "retrieval_data/query/8459.npz",
+    "query_id": "8459",
+    "top1_id": "8459",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/846821.npz",
+    "query_id": "846821",
+    "top1_id": "846821",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/847711.npz",
+    "query_id": "847711",
+    "top1_id": "847711",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/847909.npz",
+    "query_id": "847909",
+    "top1_id": "847909",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/84827.npz",
+    "query_id": "84827",
+    "top1_id": "84827",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/848606.npz",
+    "query_id": "848606",
+    "top1_id": "848606",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/849649.npz",
+    "query_id": "849649",
+    "top1_id": "849649",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/850137.npz",
+    "query_id": "850137",
+    "top1_id": "850137",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/852663.npz",
+    "query_id": "852663",
+    "top1_id": "83424",
+    "similarity": "0.390977"
+  },
+  {
+    "query_file": "retrieval_data/query/853085.npz",
+    "query_id": "853085",
+    "top1_id": "853085",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/855438.npz",
+    "query_id": "855438",
+    "top1_id": "855438",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/85548.npz",
+    "query_id": "85548",
+    "top1_id": "85548",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/857677.npz",
+    "query_id": "857677",
+    "top1_id": "857677",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/859212.npz",
+    "query_id": "859212",
+    "top1_id": "859212",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/859307.npz",
+    "query_id": "859307",
+    "top1_id": "859307",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/859715.npz",
+    "query_id": "859715",
+    "top1_id": "753490",
+    "similarity": "0.484571"
+  },
+  {
+    "query_file": "retrieval_data/query/860334.npz",
+    "query_id": "860334",
+    "top1_id": "817553",
+    "similarity": "0.473491"
+  },
+  {
+    "query_file": "retrieval_data/query/86496.npz",
+    "query_id": "86496",
+    "top1_id": "86496",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/865094.npz",
+    "query_id": "865094",
+    "top1_id": "865094",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/866525.npz",
+    "query_id": "866525",
+    "top1_id": "866525",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/869747.npz",
+    "query_id": "869747",
+    "top1_id": "243137",
+    "similarity": "0.503736"
+  },
+  {
+    "query_file": "retrieval_data/query/869880.npz",
+    "query_id": "869880",
+    "top1_id": "869880",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/869984.npz",
+    "query_id": "869984",
+    "top1_id": "869984",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/873360.npz",
+    "query_id": "873360",
+    "top1_id": "873360",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/874059.npz",
+    "query_id": "874059",
+    "top1_id": "874059",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/874911.npz",
+    "query_id": "874911",
+    "top1_id": "874911",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/877905.npz",
+    "query_id": "877905",
+    "top1_id": "877905",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/878762.npz",
+    "query_id": "878762",
+    "top1_id": "878762",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/879126.npz",
+    "query_id": "879126",
+    "top1_id": "546732",
+    "similarity": "0.415896"
+  },
+  {
+    "query_file": "retrieval_data/query/880795.npz",
+    "query_id": "880795",
+    "top1_id": "163866",
+    "similarity": "0.467032"
+  },
+  {
+    "query_file": "retrieval_data/query/884989.npz",
+    "query_id": "884989",
+    "top1_id": "884989",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/88784.npz",
+    "query_id": "88784",
+    "top1_id": "88784",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/88843.npz",
+    "query_id": "88843",
+    "top1_id": "88843",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/889878.npz",
+    "query_id": "889878",
+    "top1_id": "653308",
+    "similarity": "0.505169"
+  },
+  {
+    "query_file": "retrieval_data/query/891334.npz",
+    "query_id": "891334",
+    "top1_id": "809564",
+    "similarity": "0.399154"
+  },
+  {
+    "query_file": "retrieval_data/query/891905.npz",
+    "query_id": "891905",
+    "top1_id": "18184",
+    "similarity": "0.525937"
+  },
+  {
+    "query_file": "retrieval_data/query/892124.npz",
+    "query_id": "892124",
+    "top1_id": "892124",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/892414.npz",
+    "query_id": "892414",
+    "top1_id": "892414",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/893036.npz",
+    "query_id": "893036",
+    "top1_id": "893036",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/894623.npz",
+    "query_id": "894623",
+    "top1_id": "57159",
+    "similarity": "0.367813"
+  },
+  {
+    "query_file": "retrieval_data/query/895096.npz",
+    "query_id": "895096",
+    "top1_id": "895096",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/895811.npz",
+    "query_id": "895811",
+    "top1_id": "76796",
+    "similarity": "0.442931"
+  },
+  {
+    "query_file": "retrieval_data/query/89784.npz",
+    "query_id": "89784",
+    "top1_id": "89784",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/898680.npz",
+    "query_id": "898680",
+    "top1_id": "821934",
+    "similarity": "0.566657"
+  },
+  {
+    "query_file": "retrieval_data/query/902482.npz",
+    "query_id": "902482",
+    "top1_id": "502375",
+    "similarity": "0.497895"
+  },
+  {
+    "query_file": "retrieval_data/query/903689.npz",
+    "query_id": "903689",
+    "top1_id": "903689",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/90413.npz",
+    "query_id": "90413",
+    "top1_id": "90413",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/906572.npz",
+    "query_id": "906572",
+    "top1_id": "906572",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/910671.npz",
+    "query_id": "910671",
+    "top1_id": "910671",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/911759.npz",
+    "query_id": "911759",
+    "top1_id": "911759",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/913729.npz",
+    "query_id": "913729",
+    "top1_id": "913729",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/914004.npz",
+    "query_id": "914004",
+    "top1_id": "914004",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/914779.npz",
+    "query_id": "914779",
+    "top1_id": "914779",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/915139.npz",
+    "query_id": "915139",
+    "top1_id": "497009",
+    "similarity": "0.392005"
+  },
+  {
+    "query_file": "retrieval_data/query/91693.npz",
+    "query_id": "91693",
+    "top1_id": "91693",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/917464.npz",
+    "query_id": "917464",
+    "top1_id": "917464",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/922439.npz",
+    "query_id": "922439",
+    "top1_id": "922439",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/922600.npz",
+    "query_id": "922600",
+    "top1_id": "922600",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/925008.npz",
+    "query_id": "925008",
+    "top1_id": "925008",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/928213.npz",
+    "query_id": "928213",
+    "top1_id": "928213",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/928272.npz",
+    "query_id": "928272",
+    "top1_id": "243137",
+    "similarity": "0.588919"
+  },
+  {
+    "query_file": "retrieval_data/query/929645.npz",
+    "query_id": "929645",
+    "top1_id": "929645",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/930238.npz",
+    "query_id": "930238",
+    "top1_id": "930238",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/933679.npz",
+    "query_id": "933679",
+    "top1_id": "81255",
+    "similarity": "0.497166"
+  },
+  {
+    "query_file": "retrieval_data/query/933873.npz",
+    "query_id": "933873",
+    "top1_id": "933873",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/936778.npz",
+    "query_id": "936778",
+    "top1_id": "936778",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/936849.npz",
+    "query_id": "936849",
+    "top1_id": "936849",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/939208.npz",
+    "query_id": "939208",
+    "top1_id": "939208",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/940791.npz",
+    "query_id": "940791",
+    "top1_id": "940791",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/943459.npz",
+    "query_id": "943459",
+    "top1_id": "943459",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/944464.npz",
+    "query_id": "944464",
+    "top1_id": "944464",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/945121.npz",
+    "query_id": "945121",
+    "top1_id": "599909",
+    "similarity": "0.405444"
+  },
+  {
+    "query_file": "retrieval_data/query/945571.npz",
+    "query_id": "945571",
+    "top1_id": "495499",
+    "similarity": "0.439806"
+  },
+  {
+    "query_file": "retrieval_data/query/945891.npz",
+    "query_id": "945891",
+    "top1_id": "84827",
+    "similarity": "0.488951"
+  },
+  {
+    "query_file": "retrieval_data/query/947092.npz",
+    "query_id": "947092",
+    "top1_id": "510499",
+    "similarity": "0.533647"
+  },
+  {
+    "query_file": "retrieval_data/query/947296.npz",
+    "query_id": "947296",
+    "top1_id": "947296",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/948452.npz",
+    "query_id": "948452",
+    "top1_id": "948452",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/950040.npz",
+    "query_id": "950040",
+    "top1_id": "950040",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/951249.npz",
+    "query_id": "951249",
+    "top1_id": "951249",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/952387.npz",
+    "query_id": "952387",
+    "top1_id": "354765",
+    "similarity": "0.544891"
+  },
+  {
+    "query_file": "retrieval_data/query/952515.npz",
+    "query_id": "952515",
+    "top1_id": "952515",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/952786.npz",
+    "query_id": "952786",
+    "top1_id": "952786",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/953780.npz",
+    "query_id": "953780",
+    "top1_id": "953780",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/960844.npz",
+    "query_id": "960844",
+    "top1_id": "133038",
+    "similarity": "0.415916"
+  },
+  {
+    "query_file": "retrieval_data/query/964124.npz",
+    "query_id": "964124",
+    "top1_id": "964124",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/969218.npz",
+    "query_id": "969218",
+    "top1_id": "969218",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/976253.npz",
+    "query_id": "976253",
+    "top1_id": "126356",
+    "similarity": "0.436615"
+  },
+  {
+    "query_file": "retrieval_data/query/97900.npz",
+    "query_id": "97900",
+    "top1_id": "97900",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/979429.npz",
+    "query_id": "979429",
+    "top1_id": "243346",
+    "similarity": "0.500257"
+  },
+  {
+    "query_file": "retrieval_data/query/979965.npz",
+    "query_id": "979965",
+    "top1_id": "457802",
+    "similarity": "0.475010"
+  },
+  {
+    "query_file": "retrieval_data/query/980981.npz",
+    "query_id": "980981",
+    "top1_id": "980981",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/981774.npz",
+    "query_id": "981774",
+    "top1_id": "981774",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/984235.npz",
+    "query_id": "984235",
+    "top1_id": "984235",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/988246.npz",
+    "query_id": "988246",
+    "top1_id": "988246",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/989329.npz",
+    "query_id": "989329",
+    "top1_id": "989329",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/990443.npz",
+    "query_id": "990443",
+    "top1_id": "990443",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/994682.npz",
+    "query_id": "994682",
+    "top1_id": "994682",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/994695.npz",
+    "query_id": "994695",
+    "top1_id": "994695",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/995020.npz",
+    "query_id": "995020",
+    "top1_id": "627454",
+    "similarity": "0.482063"
+  },
+  {
+    "query_file": "retrieval_data/query/995803.npz",
+    "query_id": "995803",
+    "top1_id": "995803",
+    "similarity": "0.999998"
+  },
+  {
+    "query_file": "retrieval_data/query/997533.npz",
+    "query_id": "997533",
+    "top1_id": "997533",
+    "similarity": "0.999998"
+  }
+]
