@@ -2,7 +2,7 @@
 最先进的3D人脸识别模型
 使用DGCNN作为骨干网络，ArcFace作为损失函数
 """
-
+import os
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -396,7 +396,7 @@ class Trainer:
         # 损失函数
         self.criterion = nn.CrossEntropyLoss()
         
-        self.best_acc = 0
+        self.best_acc = -1.0
         self.history = defaultdict(list)
     
     def train_epoch(self, epoch):
@@ -469,24 +469,25 @@ class Trainer:
             
             # 验证
             val_loss, val_acc = self.validate(epoch)
-            if val_loss:
+            if val_loss is not None:
                 self.history['val_loss'].append(val_loss)
                 self.history['val_acc'].append(val_acc)
-            
+
             # 调整学习率
             self.scheduler.step()
-            
+
             # 打印
             print(f'Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f}')
-            if val_loss:
+            if val_loss is not None:
                 print(f'Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}')
-            
+
             # 保存最佳模型
-            if val_acc and val_acc > self.best_acc:
-                self.best_acc = val_acc
+            current_acc = val_acc if val_acc is not None else train_acc
+            if current_acc is not None and current_acc > self.best_acc:
+                self.best_acc = current_acc
                 self.save_checkpoint('best_model.pth', epoch)
-                print(f'✓ 保存最佳模型 (acc: {val_acc:.4f})')
-    
+                print(f'✓ 保存最佳模型 (acc: {current_acc:.4f})')
+            
     def save_checkpoint(self, path, epoch):
         torch.save({
             'epoch': epoch,
